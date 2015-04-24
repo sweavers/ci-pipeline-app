@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="ci_dashboard11.css" type="text/css"/>
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script>
+</script>
+
+<body bgcolor="#6C7A89">
+
+<h1 class="alignme_2"><font color="#ececec">Continuous Integration Pipeline Dashboard</font></h1>
+<form name="input" action="home_week_view" method="get">
+	<div class="button_week_month">
+		<button type="submit" class="btn">Week View</button>
+	</div>	
+</form>
+<form name="input" action="home_month_view" method="get">
+	<div class="button_week_month">
+		<button type="submit" class="btn">Month View</button>
+	</div>
+</form>
+<br><br><br><br> 	
+<div class="list">
+	<h3 class="alignme_2"><font color="#ececec">Open LCRs:</font></h3>
+	<div class="fa_plus_symbol">
+		<i class="fa fa-plus">
+			<a href="http://localhost:8088/new_lcr">
+				<span class="link-spanner"></span>
+			</a>
+		</i>
+	</div>
+	<br><br><br>
+	<div class="LCR1">32716 - Digital Register View
+		<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+			<span class="link-spanner"></span>
+		</a>
+	</div><br>
+	<div class="LCR2">32719 - Register Data Migration
+		<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+			<span class="link-spanner"></span>
+		</a>
+	</div><br>
+	<div class="LCR3">32724 - Land Charges
+		<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+			<span class="link-spanner"></span>
+		</a>
+	</div><br>
+	<div class="LCR4">32731 - Counter Fraud
+		<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+			<span class="link-spanner"></span>
+		</a>
+	</div><br><br><br><br>
+	<form name="input" action="new_deployment" method="get">
+		<div class="padme">
+			<button type="submit" class="btn">New Deployment</button>
+		</div>
+	</form>
+</div> 
+
+<div class="deployment_calendar">
+	<% @weekday_array = []
+	@weekday_array.push("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")%>
+
+	<div class="calendar_header">
+		<div class="img_align"><</div>
+		<div class="year_month_heading">
+			<div align="center"><font color="#ececec">April 2015</font></div> 
+		</div> 
+		<div class="img_align">></div>
+	</div>
+
+	<div class="weekdays">
+		<% @weekday_array.each do |day|	%>
+			<div class="weekday_slot" align="center"><%=day%></div>
+		<% end %>
+	</div>
+
+	<div class="calendar_border">
+		<div class="calendar_slot_grey">
+			<div class="calendar_text" align="right">30</div>
+		</div>
+
+		<div class="calendar_slot_grey">
+			<div class="calendar_text" align="right">31</div>
+		</div>
+	<% (1..30).each do |int| 
+		if int == 5 %>
+			<div class="calendar_slot">
+				<div class="calendar_text" align="right"><%=int%></div>
+				<div class="LCR3_calendar">Infrastructure changes</div>
+			</div>
+		<% elsif int == 14 %>
+			<div class="calendar_slot">
+				<div class="calendar_text" align="right"><%=int%></div>
+				<div class="LCR1_calendar"><strike>Security changes</strike></div>
+				<div class="LCR4_calendar">Title of some changes</div>
+			</div>
+		<% elsif int == 17 %>
+			<div class="calendar_slot_today">
+				<div class="calendar_text" align="right"><%=int%></div>
+			</div>
+		<% else %>
+			<div class="calendar_slot">
+				<div class="calendar_text" align="right"><%=int%></div>
+			</div>
+		<% end %>
+	<% end %>
+		<div class="calendar_slot_grey_full">
+			<div class="calendar_text" align="right">1</div>
+			<div class="LCR4_calendar">Some different changes</div>
+			<div class="LCR2_calendar">Changes to UI</div>
+			<div class="LCR1_calendar">Security changes</div>
+			<div class="LCR3_calendar">Map changes</div>
+		</div>
+		<div class="calendar_slot_grey">
+			<div class="calendar_text" align="right">2</div>
+		</div>
+		<div class="calendar_slot_grey">
+			<div class="calendar_text" align="right">3</div>
+		</div>
+	</div>
+</div>
+<br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
