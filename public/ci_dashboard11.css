@@ -307,9 +307,67 @@ body {
 	font-size: 100%;
 }
 
+.triangle {
+	float:left;
+	width: 0; 
+	height: 0; 
+	border-top: 75px solid #F22613; 
+	border-right: 190px solid transparent;
+}
+
+.text {
+	float:left;
+	text-align:center;
+	margin-top:10%;
+	margin-left:-80%;
+}
+
+.slot {
+	float:left;
+	width:190px;
+	height:75px;
+	border-style: solid;
+    border-width: 1px;
+	border-color: black;
+}
+
+.image_format {
+	float: left;
+	max-height:100%; 
+	max-width:100%;
+	margin-left: -92%;
+	margin-top: -13%;
+}
+
 .week_calendar_text {
 	text-align:center;
 	margin-top:10%;
+}
+
+.week_calendar_text_fail {
+	float:left;
+	text-align:center;
+	margin-top:10%;
+	margin-left:-80%;
+}
+
+.week_calendar_text_fail_2 {
+	float:left;
+	text-align:center;
+	margin-top:10%;
+	margin-left: 20%;
+}
+
+.week_calendar_text_fail {
+	text-align:center;
+	margin-top:10%;
+}
+
+#triangle-topleft { 
+  width: 0; 
+  height: 0; 
+  border-top: 100px solid gray; 
+  border-right: 100px solid transparent;
 }
 
 .link-spanner{
