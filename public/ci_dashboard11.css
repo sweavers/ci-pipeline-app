@@ -311,24 +311,8 @@ body {
 	float:left;
 	width: 0; 
 	height: 0; 
-	border-top: 75px solid #F22613; 
-	border-right: 190px solid transparent;
-}
-
-.text {
-	float:left;
-	text-align:center;
-	margin-top:10%;
-	margin-left:-80%;
-}
-
-.slot {
-	float:left;
-	width:190px;
-	height:75px;
-	border-style: solid;
-    border-width: 1px;
-	border-color: black;
+	border-top: 71px solid #EF4836; 
+	border-right: 189px solid transparent;
 }
 
 .image_format {
@@ -361,13 +345,6 @@ body {
 .week_calendar_text_fail {
 	text-align:center;
 	margin-top:10%;
-}
-
-#triangle-topleft { 
-  width: 0; 
-  height: 0; 
-  border-top: 100px solid gray; 
-  border-right: 100px solid transparent;
 }
 
 .link-spanner{
@@ -414,7 +391,7 @@ body {
 	margin-right: auto;
 	float:left;
 	width:14.28%;
-	height:20px;
+	height:20.1%;
 	color: #ececec;
 }
 
@@ -430,7 +407,7 @@ body {
 .calendar_slot {
 	float:left;
 	width:14.2857%;
-	height:20%;
+	height:20.1%;
 	border-style: solid;
     border-width: 1px;
 	border-color: black;
@@ -439,16 +416,17 @@ body {
 .week_calendar_slot {
 	float:left;
 	width:14.2857%;
-	height:10%;
+	height:10.1%;
 	border-style: solid;
     border-width: 1px;
 	border-color: black;
+	background: #264348;
 }
 
 .week_calendar_slot_grey {
 	float:left;
 	width:14.2857%;
-	height:10%;
+	height:10.1%;
 	border-style: solid;
     border-width: 1px;
 	border-color: black;
@@ -458,7 +436,7 @@ body {
 .calendar_slot_today {
 	float:left;
 	width:14.2857%;
-	height:20%;
+	height:20.1%;
 	border-style: solid;
     border-width: 2px;
 	border-color: #F4D03F;
@@ -467,39 +445,42 @@ body {
 .week_calendar_slot_today {
 	float:left;
 	width:14.2857%;
-	height:10%;
+	height:10.1%;
 	border-style: solid;
     border-width: 1px;
 	border-color: #F4D03F;
 	border-top-color: black;
     border-bottom-color: black;
+	background: #264348;
 }
 
 .week_calendar_slot_bottom {
 	float:left;
 	width:14.2857%;
-	height:10%;
+	height:10.1%;
 	border-style: solid;
     border-width: 1px;
 	border-color: #F4D03F;
 	border-bottom-color: black;
+	background: #264348;
 }
 
 .week_calendar_slot_top {
 	float:left;
 	width:14.2857%;
-	height:10%;
+	height:10.1%;
 	border-style: solid;
     border-width: 1px;
 	border-color: #F4D03F;
 	border-top-color: black;
+	background: #264348;
 }
 
 
 .calendar_slot_grey {
 	float:left;
 	width:14.2857%;
-	height:20%;
+	height:20.1%;
 	border-style: solid;
     border-width: 1px;
 	border-color: black;
@@ -509,7 +490,7 @@ body {
 .calendar_slot_grey_full {
 	float:left;
 	width:14.2857%;
-	height:20%;
+	height:20.1%;
 	border-style: solid;
     border-width: 2px;
 	border-color: #CF000F;
