@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="ci_dashboard11.css" type="text/css"/>
+<link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script>
 </script>
@@ -64,12 +64,21 @@
 <div class="deployment_calendar">
 	<% @weekday_array = []
 	@weekday_array.push("Monday, 30", "Tuesday, 31", "Wednesday, 1", "Thursday, 2", "Friday, 3", "Saturday, 4", "Sunday, 5")%>
+	
 	<div class="calendar_header">
-		<div class="img_align"><</div>
+		<form name="input" action="home_week_view" method="get">
+			<input type="text" name="current_monday_month_year" value=<%= @current_monday_month_year %> style="display: none;">
+			<input type="text" name="arrow_value" value="minus" style="display: none;">
+			<div class="img_align"><button type="left_arrow_btn" class="btn"><</button></div>
+		</form>
 		<div class="year_month_heading">
-			<div align="center"><font color="#ececec">April 2015</font></div> 
+			<div align="center"><font color="#ececec"><%=@month_year%></font></div> 
 		</div> 
-		<div class="img_align">></div>
+		<form name="input" action="home_week_view" method="get">
+			<input type="text" name="current_monday_month_year" value=<%= @current_monday_month_year %> style="display: none;">
+			<input type="text" name="arrow_value" value="positive" style="display: none;">
+			<div class="img_align"><button type="left_arrow_btn" class="btn">></button></div>
+		</form>
 	</div>
 
 	<div class="weekdays">
@@ -81,59 +90,12 @@
 	@timeslot_array.push("19:00", "20:00", "21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00", "04:00") %>
 	<div class="calendar_border">
 	<% @timeslot_array.each do |time_slot| %>
-		<% (1..7).each do |weekday| 
-			if weekday == 3 && time_slot == "20:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR4_calendar_week"><div class="week_calendar_text">Title of some changes</div></div>
-				</div>
-			<% elsif weekday == 1 && time_slot == "19:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR1_calendar_week">
-					<div class="triangle"></div>
-					<div class="week_calendar_text_fail"><strike>Security changes</strike></div>
-					</div>
-				</div>
-			<% elsif weekday == 3 && time_slot == "21:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR1_calendar_week">
-					
-					<div class="week_calendar_text_fail_2">Security changes</div>
-					<img src="fail.png" class="image_format">
-					</div>
-					
-				</div>	
-			<% elsif weekday == 5 && time_slot == "02:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR2_calendar_week"><div class="week_calendar_text">Changes to UI</div></div>
-				</div>
-			<% elsif weekday == 6 && time_slot == "22:00" || weekday == 6 && time_slot == "23:00" || weekday == 6 && time_slot == "00:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR3_calendar_week"><div class="week_calendar_text">Infrastructure changes</div></div>
-				</div>		
-			<% elsif weekday == 5 %>
-				<% if time_slot == "19:00" %>
-					<div class="week_calendar_slot_bottom">
-						<div class="calendar_text" align="right"><%=time_slot%></div>
-					</div>
-				<% elsif time_slot == "04:00" %>
-					<div class="week_calendar_slot_top">
-						<div class="calendar_text" align="right"><%=time_slot%></div>
-					</div>
-				<% else %>
-					<div class="week_calendar_slot_today">
-						<div class="calendar_text" align="right"><%=time_slot%></div>
-					</div>
-				<% end %>			
-			<% elsif weekday == 1 || weekday == 2%>
+		<% @weekdays.each do |weekday, result| %>
+			<% if result == "previous" || result == "subsequent"%>
 				<div class="week_calendar_slot_grey">
 					<div class="calendar_text" align="right"><%=time_slot%></div>
-				</div>			
-			<% else %>
+				</div>	
+			<% elsif result == "current" %>
 				<div class="week_calendar_slot">
 					<div class="calendar_text" align="right"><%=time_slot%></div>
 				</div>

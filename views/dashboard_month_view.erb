@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="ci_dashboard11.css" type="text/css"/>
+<link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script>
 </script>
@@ -64,11 +64,19 @@
 	@weekday_array.push("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")%>
 
 	<div class="calendar_header">
-		<div class="img_align"><</div>
+		<form name="input" action="home_month_view" method="get">
+			<input type="text" name="current_month_year" value=<%= @current_month_year %> style="display: none;">
+			<input type="text" name="arrow_value" value="minus" style="display: none;">
+			<div class="img_align"><button type="left_arrow_btn" class="btn"><</button></div>
+		</form>
 		<div class="year_month_heading">
-			<div align="center"><font color="#ececec">April 2015</font></div> 
+			<div align="center"><font color="#ececec"><%=@month_year%></font></div> 
 		</div> 
-		<div class="img_align">></div>
+		<form name="input" action="home_month_view" method="get">
+			<input type="text" name="current_month_year" value=<%= @current_month_year %> style="display: none;">
+			<input type="text" name="arrow_value" value="positive" style="display: none;">
+			<div class="img_align"><button type="left_arrow_btn" class="btn">></button></div>
+		</form>
 	</div>
 
 	<div class="weekdays">
@@ -76,28 +84,27 @@
 			<div class="weekday_slot" align="center"><%=day%></div>
 		<% end %>
 	</div>
-
 	<div class="calendar_border">
+	
+	<% @previous_month_days.each do |day_number| %>
 		<div class="calendar_slot_grey">
-			<div class="calendar_text" align="right">30</div>
+			<div class="calendar_text" align="right"><%=day_number%></div>
 		</div>
-
-		<div class="calendar_slot_grey">
-			<div class="calendar_text" align="right">31</div>
-		</div>
-	<% (1..30).each do |int| 
-		if int == 5 %>
+	<% end %>
+	
+	<% (1..@current_month_days).each do |int| 
+		if int.to_i == 5 %>
 			<div class="calendar_slot">
 				<div class="calendar_text" align="right"><%=int%></div>
 				<div class="LCR3_calendar">Infrastructure changes</div>
 			</div>
-		<% elsif int == 14 %>
+		<% elsif int.to_i == 14 %>
 			<div class="calendar_slot">
 				<div class="calendar_text" align="right"><%=int%></div>
 				<div class="LCR1_calendar"><strike>Security changes</strike></div>
 				<div class="LCR4_calendar">Title of some changes</div>
 			</div>
-		<% elsif int == 17 %>
+		<% elsif int.to_i == 17 %>
 			<div class="calendar_slot_today">
 				<div class="calendar_text" align="right"><%=int%></div>
 			</div>
@@ -107,19 +114,12 @@
 			</div>
 		<% end %>
 	<% end %>
-		<div class="calendar_slot_grey_full">
-			<div class="calendar_text" align="right">1</div>
-			<div class="LCR4_calendar">Some different changes</div>
-			<div class="LCR2_calendar">Changes to UI</div>
-			<div class="LCR1_calendar">Security changes</div>
-			<div class="LCR3_calendar">Map changes</div>
-		</div>
+	
+	<% @subsequent_month_days.each do |day_number| %>
 		<div class="calendar_slot_grey">
-			<div class="calendar_text" align="right">2</div>
+			<div class="calendar_text" align="right"><%=day_number%></div>
 		</div>
-		<div class="calendar_slot_grey">
-			<div class="calendar_text" align="right">3</div>
-		</div>
+	<% end %>
 	</div>
 </div>
 <br><br><br><br><br><br>
