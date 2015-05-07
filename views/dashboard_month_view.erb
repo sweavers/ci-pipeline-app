@@ -3,131 +3,139 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Abel">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster">
 <link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script>
 </script>
 
 <body bgcolor="#6C7A89">
-
-<h1 class="alignme_2"><font color="#ececec">Continuous Integration Pipeline Dashboard</font></h1>
-<form name="input" action="home_week_view" method="get">
-	<div class="button_week_month">
-		<button type="submit" class="btn">Week View</button>
-	</div>	
-</form>
-<form name="input" action="home_month_view" method="get">
-	<div class="button_week_month">
-		<button type="submit" class="btn">Month View</button>
-	</div>
-</form>
-<br><br><br><br> 	
-<div class="list">
-	<h3 class="alignme_2"><font color="#ececec">Open LCRs:</font></h3>
-	<div class="fa_plus_symbol">
-		<i class="fa fa-plus">
-			<a href="http://localhost:8088/new_lcr">
-				<span class="link-spanner"></span>
-			</a>
-		</i>
-	</div>
-	<br><br><br>
-	<div class="LCR1">32716 - Digital Register View
-		<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
-			<span class="link-spanner"></span>
-		</a>
-	</div><br>
-	<div class="LCR2">32719 - Register Data Migration
-		<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
-			<span class="link-spanner"></span>
-		</a>
-	</div><br>
-	<div class="LCR3">32724 - Land Charges
-		<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
-			<span class="link-spanner"></span>
-		</a>
-	</div><br>
-	<div class="LCR4">32731 - Counter Fraud
-		<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
-			<span class="link-spanner"></span>
-		</a>
-	</div><br><br><br><br>
-	<form name="input" action="new_deployment" method="get">
-		<div class="padme">
-			<button type="submit" class="btn">New Deployment</button>
+<div class="col-md-10">
+	<h1 class="heading">Deployment Scheduler</h1>
+</div>
+<div class="col-md-2">
+	<form name="input" action="home_week_view" method="get">
+		<div class="button_week_month">
+			<button type="submit" class="btn">Week View</button>
 		</div>
 	</form>
-</div> 
-
-<div class="deployment_calendar">
-	<% @weekday_array = []
-	@weekday_array.push("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")%>
-
-	<div class="calendar_header">
-		<form name="input" action="home_month_view" method="get">
-			<input type="text" name="current_month_year" value=<%= @current_month_year %> style="display: none;">
-			<input type="text" name="arrow_value" value="minus" style="display: none;">
-			<div class="img_align"><button type="left_arrow_btn" class="btn"><</button></div>
-		</form>
-		<div class="year_month_heading">
-			<div align="center"><font color="#ececec"><%=@month_year%></font></div> 
-		</div> 
-		<form name="input" action="home_month_view" method="get">
-			<input type="text" name="current_month_year" value=<%= @current_month_year %> style="display: none;">
-			<input type="text" name="arrow_value" value="positive" style="display: none;">
-			<div class="img_align"><button type="left_arrow_btn" class="btn">></button></div>
-		</form>
-	</div>
-
-	<div class="weekdays">
-		<% @weekday_array.each do |day|	%>
-			<div class="weekday_slot" align="center"><%=day%></div>
-		<% end %>
-	</div>
-	<div class="calendar_border">
-	
-	<% @previous_month_days.each do |day_number| %>
-		<div class="calendar_slot_grey">
-			<div class="calendar_text" align="right"><%=day_number%></div>
+	<form name="input" action="home_month_view" method="get">
+		<div class="button_week_month">
+			<button type="submit" class="btn">Month View</button>
 		</div>
-	<% end %>
-	
-	<% (1..@current_month_days).each do |int| 
-		if int.to_i == 5 %>
-			<div class="calendar_slot">
-				<div class="calendar_text" align="right"><%=int%></div>
-				<div class="LCR3_calendar">Infrastructure changes</div>
+	</form>
+</div>
+<br><br><br><br>
+
+<div class="calendar_wrapper">
+	<div class="col-md-10">
+	<div class="deployment_calendar">
+		<% @weekday_array = []
+		@weekday_array.push("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")%>
+
+		<div class="calendar_header">
+			<form name="input" action="home_month_view" method="get">
+				<input type="text" name="current_month_year" value=<%= @current_month_year %> style="display: none;">
+				<input type="text" name="arrow_value" value="minus" style="display: none;">
+				<div class="col-md-1">
+					<div class="left_arrow"><button type="left_arrow_btn" class="btn"><</button></div>
+				</div>
+			</form>
+			<div class="col-md-10">
+				<div class="year_month_heading"><%=@month_year%></div>
 			</div>
-		<% elsif int.to_i == 14 %>
-			<div class="calendar_slot">
-				<div class="calendar_text" align="right"><%=int%></div>
-				<div class="LCR1_calendar"><strike>Security changes</strike></div>
-				<div class="LCR4_calendar">Title of some changes</div>
-			</div>
-		<% elsif int.to_i == 17 %>
-			<div class="calendar_slot_today">
-				<div class="calendar_text" align="right"><%=int%></div>
-			</div>
-		<% else %>
-			<div class="calendar_slot">
-				<div class="calendar_text" align="right"><%=int%></div>
+			<form name="input" action="home_month_view" method="get">
+				<input type="text" name="current_month_year" value=<%= @current_month_year %> style="display: none;">
+				<input type="text" name="arrow_value" value="positive" style="display: none;">
+				<div class="col-md-1">
+					<div class="right_arrow"><button type="left_arrow_btn" class="btn">></button></div>
+				</div>
+			</form>
+		</div>
+
+		<div class="weekdays">
+			<% @weekday_array.each do |day|	%>
+				<div class="weekday_slot" align="center"><%=day%></div>
+			<% end %>
+		</div>
+		<div class="calendar_border">
+
+		<% @previous_month_days.each do |day_number| %>
+			<div class="calendar_slot_grey">
+				<div class="calendar_text_outside" align="right"><%=day_number%></div>
 			</div>
 		<% end %>
-	<% end %>
-	
-	<% @subsequent_month_days.each do |day_number| %>
-		<div class="calendar_slot_grey">
-			<div class="calendar_text" align="right"><%=day_number%></div>
+
+		<% (1..@current_month_days).each do |int|
+			if int.to_i == 5 %>
+				<div class="calendar_slot">
+					<div class="calendar_text" align="right"><%=int%></div>
+					<div class="LCR3_calendar">Infrastructure changes</div>
+				</div>
+			<% elsif int.to_i == 14 %>
+				<div class="calendar_slot">
+					<div class="calendar_text" align="right"><%=int%></div>
+					<div class="LCR1_calendar"><strike>Security changes</strike></div>
+					<div class="LCR4_calendar">Title of some changes</div>
+				</div>
+			<% elsif int.to_i == 17 %>
+				<div class="calendar_slot_today">
+					<div class="calendar_text" align="right"><%=int%></div>
+				</div>
+			<% else %>
+				<div class="calendar_slot">
+					<div class="calendar_text" align="right"><%=int%></div>
+				</div>
+			<% end %>
+		<% end %>
+
+		<% @subsequent_month_days.each do |day_number| %>
+			<div class="calendar_slot_grey">
+				<div class="calendar_text_outside" align="right"><%=day_number%></div>
+			</div>
+		<% end %>
 		</div>
-	<% end %>
+	</div>
+	</div>
+
+	<div class="col-md-2">
+	<div class="list">
+		<h3 class="LCR_heading"><font color="#1C1C1C">Open LCRs:</font></h3>
+		<div class="fa_plus_symbol">
+			<i class="fa fa-plus">
+				<a href="http://localhost:8088/new_lcr">
+					<span class="link-spanner"></span>
+				</a>
+			</i>
+		</div>
+		<br><br><br>
+		<div class="LCR1">32716 - Digital Register View
+			<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+				<span class="link-spanner"></span>
+			</a>
+		</div><br>
+		<div class="LCR2">32719 - Register Data Migration
+			<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+				<span class="link-spanner"></span>
+			</a>
+		</div><br>
+		<div class="LCR3">32724 - Land Charges
+			<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+				<span class="link-spanner"></span>
+			</a>
+		</div><br>
+		<div class="LCR4">32731 - Counter Fraud
+			<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+				<span class="link-spanner"></span>
+			</a>
+		</div><br><br><br><br>
+		<form name="input" action="new_deployment" method="get">
+			<button type="submit" class="btn">New Deployment</button>
+		</form>
+	</div>
 	</div>
 </div>
 <br><br><br><br><br><br>
 </body>
 </html>
-
-
-
-
-
-

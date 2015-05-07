@@ -1,12 +1,12 @@
 fieldset {
-	border: 2px solid #1C1C1C;
+	border: 2px solid white;
 	width: 720px;
 	height:930px;
 	margin-left: 10px;
 }
 
 legend {
-	color: #ececec;
+	color: #6C7A89;
 	margin-top: 20px;
 	margin-left: 20px;
 	font-size: 250%;
@@ -15,13 +15,46 @@ legend {
 }
 
 body {
-    background-color: #264348;
-} 
+  background-color: white;
+	font-family: 'Abel', cursive;
+}
 
+.heading {
+	font-family: 'Lobster', cursive;
+	color: #1C1C1C;
+	margin-left: 20px;
+	float: left;
+	text-decoration: underline;
+}
+
+.LCR_heading {
+	font-family: 'Abel', cursive;
+	color: #1C1C1C;
+	float: left;
+}
+
+.calendar_wrapper {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
 
 .deployment_form {
 	float: left;
 }
+
+
+.list {
+	float: left;
+	margin-top: 60px;
+	height: 40%;
+}
+
+.deployment_calendar {
+	height: 49.61%;
+	float: left;
+}
+
 
 .new_deployment_calendar {
 	margin-left: 20px;
@@ -30,28 +63,21 @@ body {
 	float: left;
 }
 
-.deployment_calendar {
-	margin-left: 20px;
-	height: 850px;
-	width: 1342px;
-	float: left;
-}
-
 .fieldset_lcr {
-	border: 2px solid #1C1C1C;
+	border: 2px solid white;
 	width: 750px;
 	height:570px;
 	margin-left: 10px;
 }
 
 .legend_lcr {
-	color: #ececec;
+	color: #6C7A89;
 	margin-top: 20px;
 	margin-left: 20px;
 	font-size: 250%;
 	width: 440px;
 	padding: 2px 6px
-} 
+}
 
 .fa-plus {
 	color: #2ECC71;
@@ -68,9 +94,8 @@ body {
 }
 
 .button_week_month{
-	margin-right: 60px;
-	margin-top: 20px;
 	float: right;
+	margin-top: 20px;
 }
 
 .button_submit {
@@ -83,14 +108,13 @@ body {
 	float: right;
 }
 
-.list {
-	margin-top: 60px;
-	float: left; 
-}
-
 .alignme_2 {
 	margin-left: 20px;
-	float: left; 
+	float: left;
+}
+
+.alignme_3 {
+	float: left;
 }
 
 .list_indent {
@@ -112,7 +136,7 @@ body {
 .div_label {
 	height: 30px;
 	width: 250px;
-	color: #ececec;
+	color: #6C7A89;
 	font-size: 120%;
 	float: left;
 	font-weight: bold;
@@ -120,93 +144,87 @@ body {
 
 .lcr_number {
 	margin-left: 20px;
-	float: left; 
+	float: left;
 }
 
 .group_label_textbox {
 	margin-left: 20px;
-	float: left; 
+	float: left;
 }
 
 .text_box {
 	height: 25px;
 	width: 250px;
-	background-color:#ececec;
+	background-color:#6C7A89;
 	box-shadow: 3px 3px 2px black;
 }
 
 .text_box:focus { /* When you click on the field... */
-    border-color: #6EA2DE;
+  border-color: #6EA2DE;
     box-shadow: 0px 0px 3px 1px #6BB9F0;
 }
 
 .text_box_optional {
 	height: 25px;
 	width: 250px;
-	background-color:#ececec;
+	background-color:#6C7A89;
 	box-shadow: 3px 3px 2px #19B5FE;
 }
 
 .text_area {
 	height: 100px;
 	width: 400px;
-	background-color:#ececec;
+	background-color:#6C7A89;
 	box-shadow: 3px 3px 2px black;
 }
 
 .text_area:focus { /* When you click on the field... */
-    border-color: #6EA2DE;
+  border-color: #6EA2DE;
     box-shadow: 0px 0px 3px 1px #6BB9F0;
 }
 
 .LCR1 {
-	margin-left: 20px;
 	width:250px;
 	height:30px;
 	border-style: solid;
-    border-width: 3px;
-	border-color: #8E44AD;
-	background: #BE90D4;
-	color:white;
+  border-width: 3px;
+	border-color: #CD85FE;
+	background: #DFB0FF;
+	color:#1C1C1C;
 	font-size: 120%;
 	position:relative;
 }
 
 .LCR2 {
-	margin-left: 20px;
 	width:250px;
 	height:30px;
 	border-style: solid;
-    border-width: 3px;
-	border-color: #3498DB;
-	background: #6BB9F0;
-	color:white;
+  border-width: 3px;
+	border-color: #A5FEFA;
+	background: #CEFFFD;
+	color:#1C1C1C;
 	font-size: 120%;
-	position:relative;
 }
 
 .LCR3 {
-	margin-left: 20px;
 	width:250px;
 	height:30px;
 	border-style: solid;
-    border-width: 3px;
-	border-color: #019875;
-	background: #90C695;
-	color:white;
+  border-width: 3px;
+	border-color: #95FF4F;
+	background: #C0FF97;
+	color:#1C1C1C;
 	font-size: 120%;
-	position:relative;
 }
 
 .LCR4 {
-	margin-left: 20px;
 	width:250px;
 	height:30px;
 	border-style: solid;
-    border-width: 3px;
-	border-color: #D35400;
-	background: #F27935;
-	color:white;
+  border-width: 3px;
+	border-color: #F9AD81;
+	background: #FDC68A;
+	color:#1C1C1C;
 	font-size: 120%;
 	position:relative;
 }
@@ -216,10 +234,10 @@ body {
 	width:100%;
 	height:25%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: #8E44AD;
-	background: #BE90D4;
-	color:white;
+  border-width: 1px;
+	border-color: #CD85FE;
+	background: #DFB0FF;
+	color: #1C1C1C;
 	font-size: 100%;
 }
 
@@ -228,10 +246,10 @@ body {
 	width:100%;
 	height:25%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: #3498DB;
-	background: #6BB9F0;
-	color:white;
+  border-width: 1px;
+	border-color: #A5FEFA;
+	background: #CEFFFD;
+	color:#1C1C1C;
 	font-size: 100%;
 }
 
@@ -240,10 +258,10 @@ body {
 	width:100%;
 	height:25%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: #019875;
-	background: #90C695;
-	color:white;
+  border-width: 1px;
+	border-color: #95FF4F;
+	background: #C0FF97;
+	color:#1C1C1C;
 	font-size: 100%;
 }
 
@@ -252,10 +270,10 @@ body {
 	width:100%;
 	height:25%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: #D35400;
-	background: #F27935;
-	color:white;
+  border-width: 1px;
+	border-color: #F9AD81;
+	background: #FDC68A;
+	color:#1C1C1C;
 	font-size: 100%;
 }
 
@@ -264,10 +282,10 @@ body {
 	width:100%;
 	height:100%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: #8E44AD;
-	background: #BE90D4;
-	color:white;
+  border-width: 1px;
+	border-color: #CD85FE;
+	background: #DFB0FF;
+	color:#1C1C1C;
 	font-size: 100%;
 }
 
@@ -275,8 +293,9 @@ body {
 	float:left;
 	width:100%;
 	height:100%;
-	background: #6BB9F0;
-	color:white;
+	border-color: #A5FEFA;
+	background: #CEFFFD;
+	color:#1C1C1C;
 	font-size: 100%;
 }
 
@@ -285,10 +304,10 @@ body {
 	width:100%;
 	height:100%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: #019875;
-	background: #90C695;
-	color:white;
+  border-width: 1px;
+	border-color: #95FF4F;
+	background: #C0FF97;
+	color:#1C1C1C;
 	font-size: 100%;
 }
 
@@ -297,24 +316,24 @@ body {
 	width:100%;
 	height:100%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: #D35400;
-	background: #F27935;
-	color:white;
+  border-width: 1px;
+	border-color: #F9AD81;
+	background: #FDC68A;
+	color:#1C1C1C;
 	font-size: 100%;
 }
 
 .triangle {
 	float:left;
-	width: 0; 
-	height: 0; 
-	border-top: 71px solid #EF4836; 
+	width: 0;
+	height: 0;
+	border-top: 71px solid #EF4836;
 	border-right: 189px solid transparent;
 }
 
 .image_format {
 	float: left;
-	max-height:100%; 
+	max-height:100%;
 	max-width:100%;
 	margin-left: -92%;
 	margin-top: -13%;
@@ -345,7 +364,7 @@ body {
 }
 
 .link-spanner {
-	position:absolute; 
+	position:absolute;
 	width:100%;
 	height:100%;
 	top:0;
@@ -353,28 +372,36 @@ body {
 	z-index: 1;
 }
 
-.img_align {
+.left_arrow {
 	float:left;
-	color: #ececec;
+	color: #6C7A89;
+	position:relative;
+}
+
+.right_arrow {
+	float:right;
+	color: #6C7A89;
 	position:relative;
 }
 
 .img_align_deployment {
 	float:left;
 	font-size: 400%;
-	color: #ececec;
+	color: #6C7A89;
 }
 
 .calendar_header {
 	float:left;
 	width:100%;
-	height:60px;
+	height:70px;
 }
 
 .year_month_heading {
 	float:left;
-	width:93.5%;
 	font-size: 200%;
+	text-align: center;
+	color: #1C1C1C;
+	width: 100%;
 }
 
 .weekdays {
@@ -389,7 +416,8 @@ body {
 	float:left;
 	width:14.28%;
 	height:20.1%;
-	color: #ececec;
+	color: #1C1C1C;
+	font-size: 18px;
 }
 
 .calendar_border {
@@ -403,8 +431,8 @@ body {
 	width:14.2857%;
 	height:20.1%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: black;
+  border-width: 1px;
+	border-color: #BDC3C7;
 }
 
 .week_calendar_slot {
@@ -412,8 +440,8 @@ body {
 	width:14.2857%;
 	height:10.1%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: black;
+  border-width: 1px;
+	border-color: #BDC3C7;
 	background: #264348;
 }
 
@@ -422,9 +450,9 @@ body {
 	width:14.2857%;
 	height:10.1%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: black;
-	background: #1C1C1C;
+  border-width: 1px;
+	border-color: #BDC3C7;
+	background: white;
 }
 
 .calendar_slot_today {
@@ -432,8 +460,8 @@ body {
 	width:14.2857%;
 	height:20.1%;
 	border-style: solid;
-    border-width: 2px;
-	border-color: #F4D03F;
+  border-width: 2px;
+	border-color: #26C281;
 }
 
 .week_calendar_slot_today {
@@ -441,11 +469,11 @@ body {
 	width:14.2857%;
 	height:10.1%;
 	border-style: solid;
-    border-width: 2px;
+  border-width: 2px;
 	border-color: #F4D03F;
 	border-top-color: transparent;
-    border-bottom-color: black;
-	background: #264348;
+  border-bottom-color: black;
+	background: #26C281;
 }
 
 .week_calendar_slot_bottom {
@@ -453,7 +481,7 @@ body {
 	width:14.2857%;
 	height:10.1%;
 	border-style: solid;
-    border-width: 2px;
+  border-width: 2px;
 	border-color: #F4D03F;
 	border-bottom-color: black;
 	background: #264348;
@@ -464,7 +492,7 @@ body {
 	width:14.2857%;
 	height:10.1%;
 	border-style: solid;
-    border-width: 2px;
+  border-width: 2px;
 	border-color: #F4D03F;
 	border-top-color: transparent;
 	background: #264348;
@@ -476,9 +504,9 @@ body {
 	width:14.2857%;
 	height:20.1%;
 	border-style: solid;
-    border-width: 1px;
-	border-color: black;
-	background: #1C1C1C;
+  border-width: 1px;
+	border-color: #BDC3C7;
+	background: white;
 }
 
 .calendar_slot_grey_full {
@@ -486,20 +514,29 @@ body {
 	width:14.2857%;
 	height:20.1%;
 	border-style: solid;
-    border-width: 2px;
+  border-width: 2px;
 	border-color: #CF000F;
 	background: #ABB7B7;
 }
 
 .calendar_text {
 	height: 0px;
-	color: #ececec;
+	color: #1C1C1C;
+	font-size: 16px;
+	margin-right: 5px;
+}
+
+.calendar_text_outside {
+	height: 0px;
+	color: #BDC3C7;
+	font-size: 16px;
+	margin-right: 5px;
 }
 
 .tableBorder {
 	border-style: solid;
-    border-width: 1px;
-	border-color: black;
+  border-width: 1px;
+	border-color: #BDC3C7;
 	width: 150%;
 }
 
@@ -551,14 +588,15 @@ body {
   background-image: -ms-linear-gradient(top, #ABB7B7, #6C7A89);
   background-image: -o-linear-gradient(top, #ABB7B7, #6C7A89);
   background-image: linear-gradient(to bottom, #ABB7B7, #6C7A89);
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
-  border-radius: 4px;
-  font-family: Arial;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0px;
+	font-family: 'Abel', cursive;
   color: #ffffff;
   font-size: 16px;
   padding: 10px 15px 10px 15px;
   text-decoration: none;
+	border: solid #cfcfcf 1px;
 }
 
 .btn:hover {
@@ -579,11 +617,11 @@ body {
   background-image: -ms-linear-gradient(top, #3498db, #2980b9);
   background-image: -o-linear-gradient(top, #3498db, #2980b9);
   background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0px;
-  font-family: Arial;
-  color: #ececec;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0px;
+	font-family: 'Abel', cursive;
+  color: #6C7A89;
   font-size: 31px;
   padding: 0px 10px 0px 7px;
   text-decoration: none;
