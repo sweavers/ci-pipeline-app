@@ -316,6 +316,15 @@ get '/new_lcr' do
 end
 
 get '/new_deployment' do
+	@weekdays = {}
+
+	count = -1
+	(1..7).each do |day|
+		@weekdays[day] = "current"
+		count = count + 1
+	end
+
+	@weekdays
 	erb :dashboard_new_deployment
 end
 
