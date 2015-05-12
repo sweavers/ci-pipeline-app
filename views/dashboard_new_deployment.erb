@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Abel">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
+<link rel="stylesheet" href="hover.css" media="all">
 <link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script>
@@ -13,10 +17,10 @@ function goBack() {
 
 <body>
 <div class="deployment_form">
-	<fieldset>
-		<legend>New Deployment</legend>
+	<fieldset class="fieldset_lcr col-md-5">
+		<legend class="legend_lcr col-md-9">New Deployment</legend>
 		<div class="list">
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">LCR Number*:</div>
 				<select name="lcr_number" class="text_box">
@@ -24,9 +28,9 @@ function goBack() {
 					<option id="register_migration" value="register_migration">32719 - Register Data Migration</option>
 					<option id="land_charges" value="land_charges">32724 - Land Charges</option>
 					<option id="counter_fraud" value="counter_fraud">32731 - Counter Fraud</option>
-				</select> <br><br>	
+				</select> <br><br>
 			</div><br><br>
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">Change Type*:</div>
 				<select name="change_type" class="text_box">
@@ -34,40 +38,40 @@ function goBack() {
 					<option id="emergency" value="emergency">Emergency</option>
 				</select> <br><br>
 			</div><br><br>
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">Technical Service Name*:</div>
 				<select name="tech_service_name" class="text_box">
 					<option id="digital_register_view" value="digital_register_view">Application: Digital Register View</option>
 					<option id="register_migration" value="register_migration">Data Transport: Register Migration</option>
-				</select> <br><br>	
+				</select> <br><br>
 			</div><br><br>
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">Description*:</div>
 				<textarea name="description" class="text_area" cols=40 rows=10></textarea><br><br>
 			</div><br><br>
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">Commit Information*:</div>
 				<textarea name="commit_info" class="text_area" cols=40 rows=10></textarea><br><br>
 			</div><br><br>
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">Contact Name*:</div>
 				<input type="text" class="text_box" name="contact_name" size="20" ><br><br>
 			</div><br><br>
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">Email Contacts*:</div>
 				<textarea name="email_contacts" class="text_area" cols=40 rows=10></textarea><br><br>
 			</div><br><br>
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">Date*:</div>
 				<input type="text" class="text_box" name="date_of_deployment" size="20" ><br><br>
 			</div><br><br>
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">Start Time*:</div>
 				<select name="start_time" class="text_box">
@@ -80,9 +84,9 @@ function goBack() {
 					<option id="0100" value="0100">01:00</option>
 					<option id="0200" value="0200">02:00</option>
 					<option id="0300" value="0300">03:00</option>
-				</select> <br><br>	
+				</select> <br><br>
 			</div><br><br>
-			
+
 			<div class="group_label_textbox">
 				<div class="div_label">End Time*:</div>
 				<select name="end_time" class="text_box">
@@ -95,20 +99,20 @@ function goBack() {
 					<option id="0200" value="0200">02:00</option>
 					<option id="0300" value="0300">03:00</option>
 					<option id="0400" value="0400">04:00</option>
-				</select> <br><br>	
+				</select> <br><br>
 			</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			
+
 			<div class="button_cancel">
 				<button onclick="goBack()" class="btn">Cancel</button>
 			</div>
-			
+
 			<form name="input" action="new_deployment" method="get">
 				<div class="button_submit">
 					<button type="submit" class="btn">Submit</button>
 				</div>
 			</form>
-		</div> 
-	</fieldset>	
+		</div>
+	</fieldset>
 </div>
 
 
@@ -119,8 +123,8 @@ function goBack() {
 	<div class="calendar_header">
 		<div class="img_align_deployment"><</div>
 		<div class="year_month_heading">
-			<div align="center"><font color="#ececec">April 2015</font></div> 
-		</div> 
+			<div align="center"><font color="#ececec">April 2015</font></div>
+		</div>
 		<div class="img_align_deployment">></div>
 	</div>
 
@@ -133,7 +137,7 @@ function goBack() {
 	@timeslot_array.push("19:00", "20:00", "21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00", "04:00") %>
 	<div class="calendar_border">
 	<% @timeslot_array.each do |time_slot| %>
-		<% (1..7).each do |weekday| 
+		<% (1..7).each do |weekday|
 			if weekday == 3 && time_slot == "20:00"%>
 				<div class="week_calendar_slot">
 					<div class="calendar_text" align="right"><%=time_slot%></div>
@@ -148,7 +152,7 @@ function goBack() {
 				<div class="week_calendar_slot">
 					<div class="calendar_text" align="right"><%=time_slot%></div>
 					<div class="LCR1_calendar_week"><div class="week_calendar_text">Security changes</div></div>
-				</div>	
+				</div>
 			<% elsif weekday == 5 && time_slot == "02:00"%>
 				<div class="week_calendar_slot">
 					<div class="calendar_text" align="right"><%=time_slot%></div>
@@ -158,7 +162,7 @@ function goBack() {
 				<div class="week_calendar_slot">
 					<div class="calendar_text" align="right"><%=time_slot%></div>
 					<div class="LCR3_calendar_week"><div class="week_calendar_text">Infrastructure changes</div></div>
-				</div>		
+				</div>
 			<% elsif weekday == 5 %>
 				<% if time_slot == "19:00" %>
 					<div class="week_calendar_slot_bottom">
@@ -172,11 +176,11 @@ function goBack() {
 					<div class="week_calendar_slot_today">
 						<div class="calendar_text" align="right"><%=time_slot%></div>
 					</div>
-				<% end %>			
+				<% end %>
 			<% elsif weekday == 1 || weekday == 2%>
 				<div class="week_calendar_slot_grey">
 					<div class="calendar_text" align="right"><%=time_slot%></div>
-				</div>			
+				</div>
 			<% else %>
 				<div class="week_calendar_slot">
 					<div class="calendar_text" align="right"><%=time_slot%></div>
@@ -188,9 +192,3 @@ function goBack() {
 </div>
 </body>
 </html>
-
-
-
-
-
-

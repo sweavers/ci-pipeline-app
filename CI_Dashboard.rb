@@ -43,11 +43,31 @@ class DatabaseData
 	end
 end
 
+
 class TimeData
 	def days_in_month(year, month)
 	  Date.new(year, month, -1).day
 	end
+
+	def previous_month_name(month)
+		previous_month = month - 1
+		if previous_month == 0
+			previous_month = 12
+		end
+		previous_month = Time.parse('01.' + previous_month.to_s + '.2015')
+		previous_month_name = previous_month.strftime("%b")
+	end
+
+	def subsequent_month_name(month)
+		subsequent_month = month + 1
+		if subsequent_month == 13
+			subsequent_month = 1
+		end
+		subsequent_month = Time.parse('01.' + subsequent_month.to_s + '.2015')
+		subsequent_month_name = subsequent_month.strftime("%b")
+	end
 end
+
 
 get '/home_month_view' do
 	if params["arrow_value"].nil? || params["arrow_value"].empty?
@@ -66,8 +86,14 @@ get '/home_month_view' do
 		@current_month_year = params["current_month_year"]
 	end
 
+	time_data_obj = TimeData.new
+
 	previous_month_days = []
 	subsequent_month_days = []
+	previous_month =  0
+	previous_month_name =  ''
+	subsequent_month_name =  0
+
 	current_month = @current_month_year[0..1].to_i
 	current_year = @current_month_year[2..5].to_i
 
@@ -85,7 +111,9 @@ get '/home_month_view' do
 		end
 	end
 
-	time_data_obj = TimeData.new
+	subsequent_month_name = time_data_obj.subsequent_month_name(current_month)
+	previous_month_name = time_data_obj.previous_month_name(current_month)
+
 	number_of_days = time_data_obj.days_in_month(current_year, current_month)
 	firstday_of_month = Time.parse('01.' + current_month.to_s + '.' + current_year.to_s)
 	lastday_of_month = Time.parse(number_of_days.to_s + '.' + current_month.to_s + '.' + current_year.to_s)
@@ -127,6 +155,8 @@ get '/home_month_view' do
 	@current_month_year = current_month.to_s + current_year.to_s
 	@month_year = month_name + ' ' + current_year.to_s
 	@previous_month_days = previous_month_days
+	@previous_month = previous_month_name.to_s
+	@subsequent_month = subsequent_month_name.to_s
 	@current_month_days = number_of_days
 	@subsequent_month_days = subsequent_month_days
 	erb :dashboard_month_view
@@ -142,6 +172,8 @@ get '/home_week_view' do
 		@arrow_value = params["arrow_value"]
 	end
 
+	time_data_obj = TimeData.new
+
 	if params["current_monday_month_year"].nil? || params["current_monday_month_year"].empty?
 		puts 'WARNING: No current_monday_month_year was entered'
 		current_time = Time.now
@@ -151,7 +183,6 @@ get '/home_week_view' do
 		if weekday_number.to_i == 1
 			monday_month_year = current_time.strftime("%d%m%Y")
 			@current_monday_month_year = monday_month_year.to_s
-			puts '//////////////////////////////////////'
 		else
 			current_month = @current_day_month_year[2..3].to_i
 			current_year = @current_day_month_year[4..7].to_i
@@ -167,7 +198,6 @@ get '/home_week_view' do
 					previous_month = 12
 				end
 
-				time_data_obj = TimeData.new
 				lastday_of_month = time_data_obj.days_in_month(previous_year, previous_month)
 
 				weekday = lastday_of_month.to_i - difference
@@ -202,7 +232,6 @@ get '/home_week_view' do
 	current_year = 0
 	previous_month = 0
 	previous_year = 0
-
 	previous_month_days = []
 	subsequent_month_days = []
 
@@ -213,12 +242,12 @@ get '/home_week_view' do
 	plus_six = current_monday+6
 
 	@weekdays = {}
-  @weekday_names = []
   @weekday_array = []
+	@weekday_names = []
+
   @weekday_names.push("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 
   count = -1
-
 	(current_monday..plus_six).each do |day|
 		@weekdays[day] = "current"
     count = count + 1
@@ -234,11 +263,19 @@ get '/home_week_view' do
   puts '[][][][][][][][][][]  weekdays_hash'
 
 	if @arrow_value == "positive"
+		puts '	###########'
+		puts '	###########'
+		puts '	###########'
+		puts current_month
 		current_month = current_month + 1
 		if current_month == 13
 			current_year = current_year + 1
 			current_month = 1
 		end
+		puts '	++++++++++++'
+		puts '	++++++++++++'
+		puts '	++++++++++++'
+		puts current_month
 	elsif @arrow_value == "minus"
 		current_month = current_month - 1
 		if current_month == 0
@@ -247,76 +284,30 @@ get '/home_week_view' do
 		end
 	end
 
+	subsequent_month_name = time_data_obj.subsequent_month_name(current_month)
+	previous_month_name = time_data_obj.previous_month_name(current_month)
+
 	puts '########################'
 	puts current_year
 	puts '--------------------------------'
 	puts current_month
 	puts '########################'
 
-
 	time_data_obj = TimeData.new
 
 	number_of_days = time_data_obj.days_in_month(current_year, current_month)
 
 	firstday_of_month = Time.parse('01.' + current_month.to_s + '.' + current_year.to_s)
-	lastday_of_month = Time.parse(number_of_days.to_s + '.' + current_month.to_s + '.' + current_year.to_s)
-
-	# Duplicate
 	month_name = firstday_of_month.strftime("%B")
-
-=begin
-	first_weekday_number = firstday_of_month.strftime("%w")
-	last_weekday_number = lastday_of_month.strftime("%w")
-
-	month_name = firstday_of_month.strftime("%B")
-
-	if first_weekday_number.to_i == 1
-		puts 'First day of the month is a Monday'
-	else
-		previous_month = current_month - 1
-		previous_year = current_year
-		if previous_month == 0
-			previous_year = previous_year - 1
-			previous_month = 12
-		end
-
-		lastday_of_month = time_data_obj.days_in_month(previous_year, previous_month)
-
-		if first_weekday_number.to_i == 0
-			first_weekday_number = 7
-		end
-
-		weekday_number = first_weekday_number.to_i - 2
-		previous_first = lastday_of_month.to_i - (weekday_number)
-		previous_month_days = (previous_first.to_i..lastday_of_month.to_i).to_a
-	end
-
-	if last_weekday_number.to_i == 0
-		puts 'Last day of the month is a Sunday'
-	else
-		additional_days = 7 - last_weekday_number.to_i
-		subsequent_month_days = (1..additional_days).to_a
-	end
-
-	if current_month.to_s.length == 1
-		current_month = '0' + current_month.to_s
-	end
-
-	puts '@@@@@@@@@@@@@@@'
-	puts current_month
-	puts '@@@@@@@@@@@@@@@'
-=end
 
 	@current_monday_month_year
 	@month_year = month_name + ' ' + current_year.to_s
   @weekday_array
 	@weekdays
-	#@previous_month_days = previous_month_days
-	#@current_month_days = number_of_days
-	#@subsequent_month_days = subsequent_month_days
+	@previous_month = previous_month_name.to_s
+	@subsequent_month = subsequent_month_name.to_s
 	erb :dashboard_week_view
 end
-
 
 
 

@@ -2,6 +2,8 @@
 <html lang="en">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Abel">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
 <link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script>
@@ -11,61 +13,57 @@ function goBack() {
 </script>
 
 <body>
-<fieldset class="fieldset_lcr">
-	<legend class="legend_lcr">New Lead Change Record</legend>
-	<div class="list">
-		
-		<div class="group_label_textbox">
-			<div class="div_label">Title*:</div>
-			<input type="text" class="text_box" name="contact_name" size="20" ><br><br>
-		</div><br><br>
-		
-		<div class="group_label_textbox">
-			<div class="div_label">Description*:</div>
-			<textarea name="description" class="text_area" cols=40 rows=10></textarea><br><br>
-		</div><br><br>
-		
-		<div class="group_label_textbox">
-			<div class="div_label">Change Category*:</div>
-			<select name="change_category" class="text_box">
+<fieldset class="fieldset_lcr col-md-6 col-sm-9 col-xs-12">
+	<legend class="legend_lcr col-md-6">New Lead Change Record</legend>
+	<div class="list col-md-12">
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Title*:</div>
+			<input type="text" class="input_text form-control input_control" name="contact_name"><br><br>
+		</div><br><br><br>
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Description*:</div>
+			<textarea name="description" class="input_text form-control input_control" rows="3" cols=40 rows=10></textarea><br><br>
+		</div><br><br><br><br><br>
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Change Category*:</div>
+			<select name="change_category" class="input_text form-control input_control">
 				<option id="new" value="new">New</option>
 				<option id="fix" value="fix">Fix</option>
 				<option id="functional" value="functional">Functional</option>
 				<option id="it_technical" value="it_technical">IT Technical</option>
 				<option id="legislative" value="legislative">Legislative</option>
-			</select> <br><br>	
-		</div><br><br>
-		
-		<div class="group_label_textbox">
-			<div class="div_label">Lead ASCH RFC (optional):</div>
-			<input type="text" class="text_box" name="lead_asch_rfc" size="20" ><br><br>
-		</div><br><br>
-		
-		<div class="group_label_textbox">
-			<div class="div_label">Project Code (optional):</div>
-			<input type="text" class="text_box" name="project_code" size="20" ><br><br>
-		</div><br><br><br><br><br><br><br><br>
-		
-		
-		<div class="button_cancel">
-			<button onclick="goBack()" class="btn">Cancel</button>
+			</select> <br><br>
+		</div><br><br><br>
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Lead ASCH RFC (optional):</div>
+		  <input type="text" class="input_text form-control input_control" name="lead_asch_rfc"><br><br>
+		</div><br><br><br>
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Project Code (optional):</div>
+			<input type="text" class="input_text form-control input_control" name="project_code"><br><br>
 		</div>
-		
-		<form name="input" action="new_deployment" method="get">
-			<div class="button_submit">
-				<button type="submit" class="btn">Submit</button>
-			</div>
-		</form>
+
+    <br><br><br><br><br><br><br><br>
+    <div class="col-md-12">
+  		<div class="button_cancel">
+  			<button onclick="goBack()" class="btn btn-primary btn-lg">Cancel</button>
+  		</div>
+
+  		<form name="input" action="new_deployment" method="get">
+  			<div class="button_submit">
+  				<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+  			</div>
+  		</form>
+    </div>
 		<br><br><br><br><br><br>
-	</div> 
-</fieldset>	
+	</div>
+</fieldset>
 
 
 </body>
 </html>
-
-
-
-
-
-

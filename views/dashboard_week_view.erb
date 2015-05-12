@@ -1,109 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Abel">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
+<link rel="stylesheet" href="hover.css" media="all">
 <link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script>
 </script>
 
 <body bgcolor="#6C7A89">
-
-<h1 class="alignme_2"><font color="#ececec">Continuous Integration Pipeline Dashboard</font></h1>
-<form name="input" action="home_week_view" method="get">
-	<div class="button_week_month">
-		<button type="submit" class="btn">Week View</button>
-	</div>
-</form>
-<form name="input" action="home_month_view" method="get">
-	<div class="button_week_month">
-		<button type="submit" class="btn">Month View</button>
-	</div>
-</form>
+<div class="col-md-10">
+	<h1 class="heading">Deployment Scheduler</h1>
+</div>
+<div class="col-md-2">
+	<form name="input" action="home_week_view" method="get">
+		<div class="button_week_month">
+			<button type="submit" class="btn btn-primary btn-lg select_btn">Week View</button>
+		</div>
+	</form>
+	<form name="input" action="home_month_view" method="get">
+		<div class="button_week_month">
+			<button type="submit" class="btn btn-primary btn-lg">Month View</button>
+		</div>
+	</form>
+</div>
 <br><br><br><br>
+
 <div class="calendar_wrapper">
-	<div class="list">
-		<h3 class="alignme_2"><font color="#ececec">Open LCRs:</font></h3>
-		<div class="fa_plus_symbol">
-			<i class="fa fa-plus">
-				<a href="http://localhost:8088/new_lcr">
-					<span class="link-spanner"></span>
-				</a>
-			</i>
-		</div>
-		<br><br><br>
-		<div class="LCR1">32716 - Digital Register View
-			<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
-				<span class="link-spanner"></span>
-			</a>
-		</div><br>
-		<div class="LCR2">32719 - Register Data Migration
-			<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
-				<span class="link-spanner"></span>
-			</a>
-		</div><br>
-		<div class="LCR3">32724 - Land Charges
-			<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
-				<span class="link-spanner"></span>
-			</a>
-		</div><br>
-		<div class="LCR4">32731 - Counter Fraud
-			<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
-				<span class="link-spanner"></span>
-			</a>
-		</div><br><br><br><br>
-		<form name="input" action="new_deployment" method="get">
-			<div class="padme">
-				<button type="submit" class="btn">New Deployment</button>
-			</div>
-		</form>
-	</div>
-
-
-	<div class="deployment_calendar">
-		<% #@weekday_array = []
-		#@weekday_array.push("Monday, 30", "Tuesday, 31", "Wednesday, 1", "Thursday, 2", "Friday, 3", "Saturday, 4", "Sunday, 5")%>
-
-		<div class="calendar_header">
-			<form name="input" action="home_week_view" method="get">
-				<input type="text" name="current_monday_month_year" value=<%= @current_monday_month_year %> style="display: none;">
-				<input type="text" name="arrow_value" value="minus" style="display: none;">
-				<div class="img_align"><button type="left_arrow_btn" class="btn"><</button></div>
-			</form>
-			<div class="year_month_heading">
-				<div align="center"><font color="#ececec"><%=@month_year%></font></div>
-			</div>
-			<form name="input" action="home_week_view" method="get">
-				<input type="text" name="current_monday_month_year" value=<%= @current_monday_month_year %> style="display: none;">
-				<input type="text" name="arrow_value" value="positive" style="display: none;">
-				<div class="img_align"><button type="left_arrow_btn" class="btn">></button></div>
-			</form>
-		</div>
-
-		<div class="weekdays">
-			<% @weekday_array.each do |day|	%>
-				<div class="weekday_slot" align="center"><%=day%></div>
-			<% end %>
-		</div>
-		<% @timeslot_array = []
-		@timeslot_array.push("19:00", "20:00", "21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00", "04:00") %>
-		<div class="calendar_border">
-		<% @timeslot_array.each do |time_slot| %>
-			<% @weekdays.each do |weekday, result| %>
-				<% if result == "previous" || result == "subsequent"%>
-					<div class="week_calendar_slot_grey">
-						<div class="calendar_text" align="right"><%=time_slot%></div>
+	<div class="col-md-10">
+		<div class="deployment_calendar">
+			<% #@weekday_array = []
+			#@weekday_array.push("Monday, 30", "Tuesday, 31", "Wednesday, 1", "Thursday, 2", "Friday, 3", "Saturday, 4", "Sunday, 5")%>
+			<div class="calendar_header_line">
+				<div class="calendar_header">
+					<div class="col-xs-1 col-sm-1 col-md-1">
+						<form name="input" action="home_week_view" method="get">
+							<input type="hidden" name="current_monday_month_year" value="<%= @current_monday_month_year %>">
+							<input type="hidden" name="arrow_value" value="minus">
+							<div class="left_arrow"><button type="submit" class="btn btn-primary btn-lg"><%=@previous_month%></button></div>
+						</form>
 					</div>
-				<% elsif result == "current" %>
-					<div class="week_calendar_slot">
-						<div class="calendar_text" align="right"><%=time_slot%></div>
+					<div class="text-center col-xs-9 col-sm-10 col-md-10">
+						<div class="year_month_heading col-md-12"><%=@month_year%></div>
 					</div>
+					<div class="col-xs-1 col-sm-1 col-md-1">
+						<form name="input" action="home_week_view" method="get">
+							<input type="hidden" name="current_monday_month_year" value="<%= @current_monday_month_year %>">
+							<input type="hidden" name="arrow_value" value="positive">
+							<div class="right_arrow"><button type="submit" class="btn btn-primary btn-lg"><%=@subsequent_month%></button></div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="weekdays">
+				<% @weekday_array.each do |day|	%>
+					<div class="weekday_slot" align="center"><%=day%></div>
+				<% end %>
+			</div>
+			<% @timeslot_array = []
+			@timeslot_array.push("19:00", "20:00", "21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00", "04:00") %>
+			<div class="calendar_border">
+			<% @timeslot_array.each do |time_slot| %>
+				<% @weekdays.each do |weekday, result| %>
+					<% if result == "previous" || result == "subsequent"%>
+						<div class="week_calendar_slot_grey hvr-reveal">
+							<div class="calendar_text" align="right"><%=time_slot%></div>
+						</div>
+					<% elsif result == "current" %>
+						<div class="week_calendar_slot hvr-reveal">
+							<div class="calendar_text" align="right"><%=time_slot%></div>
+						</div>
+					<% end %>
 				<% end %>
 			<% end %>
-		<% end %>
+			</div>
 		</div>
 	</div>
+
+	<div class="col-md-2">
+		<div class="list">
+			<h3 class="LCR_heading"><font color="#1C1C1C">Open LCRs:</font></h3>
+			<div class="fa_plus_symbol hvr-pulse">
+				<i class="fa fa-plus">
+					<a href="http://localhost:8088/new_lcr">
+						<span class="link-spanner"></span>
+					</a>
+				</i>
+			</div>
+			<br><br><br>
+			<div class="LCR1">32716 - Digital Register View
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br>
+			<div class="LCR2">32719 - Register Data Migration
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br>
+			<div class="LCR3">32724 - Land Charges
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br>
+			<div class="LCR4">32731 - Counter Fraud
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br><br><br><br>
+			<form name="input" action="new_deployment" method="get">
+				<button type="submit" class="btn btn-primary btn-lg">New Deployment</button>
+			</form>
+		</div>
+	</div>
+
 </div>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

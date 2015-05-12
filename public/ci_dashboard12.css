@@ -1,3 +1,13 @@
+.abc {
+	border: 2px solid #CF000F;
+}
+.abc2 {
+	border: 2px solid #4183D7;
+}
+.abc3 {
+	border: 2px solid #F89406;
+}
+
 fieldset {
 	border: 2px solid white;
 	width: 720px;
@@ -11,7 +21,7 @@ legend {
 	margin-left: 20px;
 	font-size: 250%;
 	width: 300px;
-	padding: 2px 6px
+	padding: 2px 6px;
 }
 
 body {
@@ -19,8 +29,12 @@ body {
 	font-family: 'Abel', cursive;
 }
 
+* {
+  border-radius: 0 !important;
+}
+
 .heading {
-	font-family: 'Lobster', cursive;
+	font-family: 'Pacifico', cursive;
 	color: #1C1C1C;
 	margin-left: 20px;
 	float: left;
@@ -31,6 +45,7 @@ body {
 	font-family: 'Abel', cursive;
 	color: #1C1C1C;
 	float: left;
+	font-weight: bold;
 }
 
 .calendar_wrapper {
@@ -43,18 +58,15 @@ body {
 	float: left;
 }
 
-
 .list {
 	float: left;
-	margin-top: 60px;
-	height: 40%;
+	margin-top: 50px;
 }
 
 .deployment_calendar {
 	height: 49.61%;
 	float: left;
 }
-
 
 .new_deployment_calendar {
 	margin-left: 20px;
@@ -64,19 +76,23 @@ body {
 }
 
 .fieldset_lcr {
-	border: 2px solid white;
-	width: 750px;
+	border: 2px solid #ececec;
 	height:570px;
 	margin-left: 10px;
 }
 
 .legend_lcr {
-	color: #6C7A89;
+	color: black;
 	margin-top: 20px;
 	margin-left: 20px;
 	font-size: 250%;
-	width: 440px;
-	padding: 2px 6px
+	padding: 2px 6px;
+	font-weight: bold;
+}
+
+.form-control {
+	float: left;
+	width: 250px;
 }
 
 .fa-plus {
@@ -85,9 +101,8 @@ body {
 }
 
 .fa_plus_symbol {
-	margin-left: 90px;
 	margin-top: 18px;
-	float: left;
+	float: right;
 	height: 30px;
 	width: 30px;
 	position:relative;
@@ -99,13 +114,12 @@ body {
 }
 
 .button_submit {
-	margin-left: 20px;
 	float: right;
 }
 
 .button_cancel {
-	margin-left: 20px;
 	float: right;
+	margin-left: 20px;
 }
 
 .alignme_2 {
@@ -134,9 +148,8 @@ body {
 }
 
 .div_label {
-	height: 30px;
-	width: 250px;
-	color: #6C7A89;
+	margin-top:7px;
+	color: black;
 	font-size: 120%;
 	float: left;
 	font-weight: bold;
@@ -152,14 +165,23 @@ body {
 	float: left;
 }
 
+.input_text {
+	font-size: 110%;
+	color: black;
+}
+
+.input_control {
+	width: 58.33333%;
+}
+
 .text_box {
 	height: 25px;
 	width: 250px;
-	background-color:#6C7A89;
+	background-color: white;
 	box-shadow: 3px 3px 2px black;
 }
 
-.text_box:focus { /* When you click on the field... */
+.text_box:focus {
   border-color: #6EA2DE;
     box-shadow: 0px 0px 3px 1px #6BB9F0;
 }
@@ -174,7 +196,7 @@ body {
 .text_area {
 	height: 100px;
 	width: 400px;
-	background-color:#6C7A89;
+	background-color:white;
 	box-shadow: 3px 3px 2px black;
 }
 
@@ -204,6 +226,7 @@ body {
 	background: #CEFFFD;
 	color:#1C1C1C;
 	font-size: 120%;
+	position:relative;
 }
 
 .LCR3 {
@@ -215,6 +238,7 @@ body {
 	background: #C0FF97;
 	color:#1C1C1C;
 	font-size: 120%;
+	position:relative;
 }
 
 .LCR4 {
@@ -323,22 +347,6 @@ body {
 	font-size: 100%;
 }
 
-.triangle {
-	float:left;
-	width: 0;
-	height: 0;
-	border-top: 71px solid #EF4836;
-	border-right: 189px solid transparent;
-}
-
-.image_format {
-	float: left;
-	max-height:100%;
-	max-width:100%;
-	margin-left: -92%;
-	margin-top: -13%;
-}
-
 .week_calendar_text {
 	text-align:center;
 	margin-top:10%;
@@ -373,13 +381,13 @@ body {
 }
 
 .left_arrow {
-	float:left;
+	float: left;
 	color: #6C7A89;
 	position:relative;
 }
 
 .right_arrow {
-	float:right;
+	float: left;
 	color: #6C7A89;
 	position:relative;
 }
@@ -392,16 +400,35 @@ body {
 
 .calendar_header {
 	float:left;
+	height:60px;
 	width:100%;
-	height:70px;
+	border-style: solid;
+	border-width: 2px;
+	border-top-color: transparent;
+	border-bottom-color: #ececec;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.calendar_header_line {
+	float:left;
+	height:80px;
+	width:100%;
+	border-style: solid;
+	border-width: 2px;
+	border-top-color: #ececec;
+	border-bottom-color: transparent;
+	border-right-color: transparent;
+	border-left-color: transparent;
 }
 
 .year_month_heading {
-	float:left;
+	float: left;
 	font-size: 200%;
-	text-align: center;
 	color: #1C1C1C;
-	width: 100%;
+	font-weight: bold;
 }
 
 .weekdays {
@@ -418,6 +445,7 @@ body {
 	height:20.1%;
 	color: #1C1C1C;
 	font-size: 18px;
+	font-weight: bold;
 }
 
 .calendar_border {
@@ -428,7 +456,7 @@ body {
 
 .calendar_slot {
 	float:left;
-	width:14.2857%;
+	width:14.28572%;
 	height:20.1%;
 	border-style: solid;
   border-width: 1px;
@@ -437,81 +465,78 @@ body {
 
 .week_calendar_slot {
 	float:left;
-	width:14.2857%;
+	width:14.28572%;
 	height:10.1%;
 	border-style: solid;
   border-width: 1px;
 	border-color: #BDC3C7;
-	background: #264348;
 }
 
 .week_calendar_slot_grey {
 	float:left;
-	width:14.2857%;
+	width:14.28572%;
 	height:10.1%;
 	border-style: solid;
   border-width: 1px;
 	border-color: #BDC3C7;
-	background: white;
 }
 
 .calendar_slot_today {
 	float:left;
-	width:14.2857%;
+	width:14.28572%;
 	height:20.1%;
 	border-style: solid;
   border-width: 2px;
-	border-color: #26C281;
+	border-color: #00B16A;
 }
 
 .week_calendar_slot_today {
 	float:left;
-	width:14.2857%;
+	width:14.28572%;
 	height:10.1%;
 	border-style: solid;
   border-width: 2px;
 	border-color: #F4D03F;
 	border-top-color: transparent;
   border-bottom-color: black;
-	background: #26C281;
 }
 
 .week_calendar_slot_bottom {
 	float:left;
-	width:14.2857%;
+	width:14.28572%;
 	height:10.1%;
 	border-style: solid;
   border-width: 2px;
 	border-color: #F4D03F;
 	border-bottom-color: black;
-	background: #264348;
 }
 
 .week_calendar_slot_top {
 	float:left;
-	width:14.2857%;
+	width:14.28572%;
 	height:10.1%;
 	border-style: solid;
   border-width: 2px;
 	border-color: #F4D03F;
 	border-top-color: transparent;
-	background: #264348;
 }
 
+.select_btn {
+	background-color: #286090;
+}
 
 .calendar_slot_grey {
 	float:left;
-	width:14.2857%;
+	width:14.28572%;
 	height:20.1%;
 	border-style: solid;
   border-width: 1px;
 	border-color: #BDC3C7;
-	background: white;
 }
 
 .calendar_slot_grey_full {
 	float:left;
-	width:14.2857%;
+	width:14.28572%;
 	height:20.1%;
 	border-style: solid;
   border-width: 2px;
@@ -579,57 +604,6 @@ body {
 
 .tableTitle {
 	text-decoration: underline;
-}
-
-.btn {
-  background: #ABB7B7;
-  background-image: -webkit-linear-gradient(top, #ABB7B7, #6C7A89);
-  background-image: -moz-linear-gradient(top, #ABB7B7, #6C7A89);
-  background-image: -ms-linear-gradient(top, #ABB7B7, #6C7A89);
-  background-image: -o-linear-gradient(top, #ABB7B7, #6C7A89);
-  background-image: linear-gradient(to bottom, #ABB7B7, #6C7A89);
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0px;
-	font-family: 'Abel', cursive;
-  color: #ffffff;
-  font-size: 16px;
-  padding: 10px 15px 10px 15px;
-  text-decoration: none;
-	border: solid #cfcfcf 1px;
-}
-
-.btn:hover {
-  background: #D2D7D3;
-  background-image: -webkit-linear-gradient(top, #D2D7D3, #6C7A89);
-  background-image: -moz-linear-gradient(top, #D2D7D3, #6C7A89);
-  background-image: -ms-linear-gradient(top, #D2D7D3, #6C7A89);
-  background-image: -o-linear-gradient(top, #D2D7D3, #6C7A89);
-  background-image: linear-gradient(to bottom, #D2D7D3, #6C7A89);
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.left_arrow_btn {
-  background: #ABB7B7;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0px;
-	font-family: 'Abel', cursive;
-  color: #6C7A89;
-  font-size: 31px;
-  padding: 0px 10px 0px 7px;
-  text-decoration: none;
-}
-
-.left_arrow_btn:hover {
-  background: #D2D7D3;
-  text-decoration: none;
 }
 
 .font {
