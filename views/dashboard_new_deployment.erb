@@ -24,6 +24,7 @@ function goBack() {
 			<div class="group_label_textbox col-md-11">
 				<div class="div_label col-md-5">LCR Number*:</div>
 				<select name="lcr_number" class="input_text form-control input_control">
+          <option id="empty" value="empty"> </option>
 					<option id="digital_register_view" value="digital_register_view">32716 - Digital Register View</option>
 					<option id="register_migration" value="register_migration">32719 - Register Data Migration</option>
 					<option id="land_charges" value="land_charges">32724 - Land Charges</option>
@@ -42,6 +43,7 @@ function goBack() {
 			<div class="group_label_textbox col-md-11">
 				<div class="div_label col-md-5">Technical Service Name*:</div>
 				<select name="tech_service_name" class="input_text form-control input_control">
+          <option id="empty" value="empty"> </option>
 					<option id="digital_register_view" value="digital_register_view">Application: Digital Register View</option>
 					<option id="register_migration" value="register_migration">Data Transport: Register Migration</option>
 				</select> <br><br>
@@ -149,7 +151,7 @@ function goBack() {
 	</div>
 	<% @timeslot_array = []
 	@timeslot_array.push("19:00", "20:00", "21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00", "04:00") %>
-  <div class="calendar_border">
+  <div class="calendar_border_deploy">
   <% @timeslot_array.each do |time_slot| %>
     <% @weekdays.each do |weekday, result| %>
       <% if result == "previous" || result == "subsequent"%>
@@ -157,9 +159,31 @@ function goBack() {
           <div class="calendar_text" align="right"><%=time_slot%></div>
         </div>
       <% elsif result == "current" %>
+      <% if weekday == 2 && time_slot == "02:00"%>
+        <div class="week_calendar_slot hvr-reveal">
+          <div class="calendar_text" align="right"><%=time_slot%></div>
+          <div class="LCR2_calendar_week"><div class="week_calendar_text">Changes to UI</div></div>
+        </div>
+      <% elsif weekday == 2 && time_slot == "01:00"%>
+        <div class="week_calendar_slot hvr-reveal">
+          <div class="calendar_text" align="right"><%=time_slot%></div>
+          <div class="LCR2_calendar_week"><div class="week_calendar_text">Backend changes</div></div>
+        </div>
+      <% elsif weekday == 3 && time_slot == "20:00" || weekday == 3 && time_slot == "21:00" || weekday == 3 && time_slot == "22:00"%>
+        <div class="week_calendar_slot hvr-reveal">
+          <div class="calendar_text" align="right"><%=time_slot%></div>
+          <div class="LCR3_calendar_week"><div class="week_calendar_text">Infrastructure Changes</div></div>
+        </div>
+      <% elsif weekday == 3 && time_slot == "23:00" || weekday == 4 && time_slot == "20:00"%>
+        <div class="week_calendar_slot hvr-reveal">
+          <div class="calendar_text" align="right"><%=time_slot%></div>
+          <div class="LCR1_calendar_week"><div class="week_calendar_text">Security Changes</div></div>
+        </div>
+      <% else %>
         <div class="week_calendar_slot hvr-reveal">
           <div class="calendar_text" align="right"><%=time_slot%></div>
         </div>
+      <% end %>
       <% end %>
     <% end %>
   <% end %>

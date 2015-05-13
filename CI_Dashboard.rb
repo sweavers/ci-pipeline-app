@@ -263,19 +263,11 @@ get '/home_week_view' do
   puts '[][][][][][][][][][]  weekdays_hash'
 
 	if @arrow_value == "positive"
-		puts '	###########'
-		puts '	###########'
-		puts '	###########'
-		puts current_month
 		current_month = current_month + 1
 		if current_month == 13
 			current_year = current_year + 1
 			current_month = 1
 		end
-		puts '	++++++++++++'
-		puts '	++++++++++++'
-		puts '	++++++++++++'
-		puts current_month
 	elsif @arrow_value == "minus"
 		current_month = current_month - 1
 		if current_month == 0

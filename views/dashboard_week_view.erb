@@ -61,7 +61,7 @@
 			</div>
 			<% @timeslot_array = []
 			@timeslot_array.push("19:00", "20:00", "21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00", "04:00") %>
-			<div class="calendar_border">
+			<div class="calendar_border_home">
 			<% @timeslot_array.each do |time_slot| %>
 				<% @weekdays.each do |weekday, result| %>
 					<% if result == "previous" || result == "subsequent"%>
@@ -69,9 +69,31 @@
 							<div class="calendar_text" align="right"><%=time_slot%></div>
 						</div>
 					<% elsif result == "current" %>
+						<% if weekday == 12 && time_slot == "02:00"%>
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right"><%=time_slot%></div>
+								<div class="LCR2_calendar_week"><div class="week_calendar_text">Changes to UI</div></div>
+							</div>
+					<% elsif weekday == 12 && time_slot == "01:00"%>
 						<div class="week_calendar_slot hvr-reveal">
 							<div class="calendar_text" align="right"><%=time_slot%></div>
+							<div class="LCR2_calendar_week"><div class="week_calendar_text">Backend changes</div></div>
 						</div>
+						<% elsif weekday == 13 && time_slot == "20:00" || weekday == 13 && time_slot == "21:00" || weekday == 13 && time_slot == "22:00"%>
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right"><%=time_slot%></div>
+								<div class="LCR3_calendar_week"><div class="week_calendar_text">Infrastructure Changes</div></div>
+							</div>
+						<% elsif weekday == 13 && time_slot == "23:00" || weekday == 9 && time_slot == "20:00"%>
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right"><%=time_slot%></div>
+								<div class="LCR1_calendar_week"><div class="week_calendar_text">Security Changes</div></div>
+							</div>
+						<% else %>
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right"><%=time_slot%></div>
+							</div>
+						<% end %>
 					<% end %>
 				<% end %>
 			<% end %>
