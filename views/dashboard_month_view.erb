@@ -12,32 +12,33 @@
 </script>
 
 <body>
-<div class="col-md-10">
-	<h1 class="heading">Deployment Scheduler</h1>
-</div>
-<div class="col-md-2">
-	<form name="input" action="home_week_view" method="get">
-		<div class="button_week_month">
-			<button type="submit" class="btn btn-primary btn-lg">Week View</button>
-		</div>
-	</form>
-	<form name="input" action="home_month_view" method="get">
-		<div class="button_week_month">
-			<button type="submit" class="btn btn-primary btn-lg select_btn">Month View</button>
-		</div>
-	</form>
-</div>
+	<div class="col-md-10">
+		<h1 class="heading">Deployment Scheduler</h1>
+	</div>
+	<div class="col-md-2">
+		<form name="input" action="home_week_view" method="get">
+			<div class="button_week_month">
+				<button type="submit" class="btn btn-primary btn-lg">Week View</button>
+			</div>
+		</form>
+		<form name="input" action="home_month_view" method="get">
+			<div class="button_week_month">
+				<button type="submit" class="btn btn-primary btn-lg select_btn">Month View</button>
+			</div>
+		</form>
+	</div>
+
 <br><br><br><br>
 
-<div class="calendar_wrapper">
-	<div class="col-md-10">
-		<div class="deployment_calendar">
-			<% @weekday_array = []
-			@weekday_array.push("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")%>
 
-			<div class="calendar_header_line">
-				<div class="calendar_header">
+<div class="container-fluid">
+	<div class="set_height col-md-10">
+		<% @weekday_array = []
+		@weekday_array.push("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")%>
 
+		<div class="calendar_header_line">
+			<div class="calendar_header">
+				<div class="container-fluid">
 					<div class="col-xs-1 col-sm-1 col-md-1">
 						<form name="input" action="home_month_view" method="get">
 							<input type="hidden" name="current_month_year" value="<%= @current_month_year %>">
@@ -57,62 +58,59 @@
 							<div class="right_arrow"><button type="submit" class="btn btn-primary btn-lg"><%=@subsequent_month%></button></div>
 						</form>
 					</div>
-
 				</div>
 			</div>
+		</div>
 
-			<div class="weekdays">
-				<% @weekday_array.each do |day|	%>
-					<div class="weekday_slot" align="center"><%=day%></div>
-				<% end %>
-			</div>
+		<div class="weekdays">
+			<% @weekday_array.each do |day|	%>
+				<div class="weekday_slot" align="center"><%=day%></div>
+			<% end %>
+		</div>
 
+		<div class="calendar_border_home">
+			<% @previous_month_days.each do |day_number| %>
+				<div class="calendar_slot_grey hvr-reveal">
+					<div class="calendar_text_outside" align="right"><%=day_number%></div>
+				</div>
+			<% end %>
 
-			<div class="calendar_border_home">
-
-				<% @previous_month_days.each do |day_number| %>
-					<div class="calendar_slot_grey hvr-reveal">
-						<div class="calendar_text_outside" align="right"><%=day_number%></div>
-					</div>
-				<% end %>
-
-				<% (1..@current_month_days).each do |int|
-					if int.to_i == 5 || int.to_i == 15%>
-						<div class="calendar_slot hvr-reveal">
-							<div class="calendar_text" align="right"><%=int%></div>
-							<div class="LCR3_calendar">Infrastructure changes</div>
-						</div>
-					<% elsif int.to_i == 14 %>
-						<div class="calendar_slot hvr-reveal">
-							<div class="calendar_text" align="right"><%=int%></div>
-							<div class="LCR1_calendar"><strike>Security changes</strike></div>
-							<div class="LCR4_calendar">Title of some changes</div>
-							<div class="LCR4_calendar">Additional Features</div>
-						</div>
-					<% elsif int.to_i == 1 || int.to_i == 24 %>
+			<% (1..@current_month_days).each do |int|
+				if int.to_i == 5 || int.to_i == 15%>
 					<div class="calendar_slot hvr-reveal">
 						<div class="calendar_text" align="right"><%=int%></div>
-						<div class="LCR1_calendar">UI changes</div>
+						<div class="LCR3_calendar">Infrastructure changes</div>
 					</div>
-					<% elsif int.to_i == 17 %>
-						<div class="calendar_slot_today hvr-reveal">
+				<% elsif int.to_i == 14 %>
+					<div class="calendar_slot hvr-reveal">
+						<div class="calendar_text" align="right"><%=int%></div>
+						<div class="LCR1_calendar"><strike>Security changes</strike></div>
+						<div class="LCR4_calendar">Title of some changes</div>
+						<div class="LCR4_calendar">Additional Features</div>
+					</div>
+				<% elsif int.to_i == 1 || int.to_i == 24 %>
+				<div class="calendar_slot hvr-reveal">
+					<div class="calendar_text" align="right"><%=int%></div>
+					<div class="LCR1_calendar">UI changes</div>
+				</div>
+				<% elsif int.to_i == 17 %>
+					<div class="calendar_slot_today hvr-reveal">
+						<div class="calendar_text" align="right"><%=int%></div>
+					</div>
+				<% else %>
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form'].submit();">
+						<form name="new_deployment_form" action="new_deployment" method="get">
 							<div class="calendar_text" align="right"><%=int%></div>
-						</div>
-					<% else %>
-						<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form'].submit();">
-							<form name="new_deployment_form" action="new_deployment" method="get">
-								<div class="calendar_text" align="right"><%=int%></div>
-							</form>
-						</div>
-					<% end %>
-				<% end %>
-
-				<% @subsequent_month_days.each do |day_number| %>
-					<div class="calendar_slot_grey hvr-reveal">
-						<div class="calendar_text_outside" align="right"><%=day_number%></div>
+						</form>
 					</div>
 				<% end %>
-			</div>
+			<% end %>
+
+			<% @subsequent_month_days.each do |day_number| %>
+				<div class="calendar_slot_grey hvr-reveal">
+					<div class="calendar_text_outside" align="right"><%=day_number%></div>
+				</div>
+			<% end %>
 		</div>
 	</div>
 

@@ -8,10 +8,41 @@
 <link rel="stylesheet" href="hover.css" media="all">
 <link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
 <script type="text/javascript" src="jquery-latest.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
 function goBack() {
     window.history.back();
 }
+
+jQuery(function($) {
+    var end_times = '';
+
+    var $end_times = $('#end_time');
+    $('#start_time').change(function () {
+        var start_time = $(this).val(), lcns = end_times[start_time] || [];
+
+        var hours = start_time.substring(0, 2);
+        var new_count = 0
+        var html = '';
+        for (var counter = 1; counter < 5; counter++) {
+            var additional_hours = (parseInt(hours) + counter).toString()
+            if (additional_hours.length == 1) {
+                var additional_hours = '0' + additional_hours + ':00';
+            }
+            else {
+                var additional_hours = additional_hours + ':00';
+            }
+            if (additional_hours == "24:00") {
+                var additional_hours = "00:00";
+                var hours = 0-counter;
+            }
+          var html = html + '<option value="'+ additional_hours + '">' + additional_hours + '</option>'
+        }
+
+
+        $end_times.html(html)
+    });
+});
 </script>
 
 
@@ -76,32 +107,22 @@ function goBack() {
 
 			<div class="group_label_textbox col-md-11">
 				<div class="div_label col-md-5">Start Time*:</div>
-				<select name="start_time" class="input_text form-control input_control">
-					<option id="1900" value="1900">19:00</option>
-					<option id="2000" value="2000">20:00</option>
-					<option id="2100" value="2100">21:00</option>
-					<option id="2200" value="2200">22:00</option>
-					<option id="2300" value="2300">23:00</option>
-					<option id="0000" value="0000">00:00</option>
-					<option id="0100" value="0100">01:00</option>
-					<option id="0200" value="0200">02:00</option>
-					<option id="0300" value="0300">03:00</option>
+				<select id="start_time" name="start_time" class="input_text form-control input_control">
+          <option>19:00</option>
+          <option>20:00</option>
+          <option>21:00</option>
+          <option>22:00</option>
+          <option>23:00</option>
+          <option>00:00</option>
+          <option>01:00</option>
+          <option>02:00</option>
+          <option>03:00</option>
 				</select> <br><br>
 			</div><br><br>
 
 			<div class="group_label_textbox col-md-11">
 				<div class="div_label col-md-5">End Time*:</div>
-				<select name="end_time" class="input_text form-control input_control">
-					<option id="2000" value="2000">20:00</option>
-					<option id="2100" value="2100">21:00</option>
-					<option id="2200" value="2200">22:00</option>
-					<option id="2300" value="2300">23:00</option>
-					<option id="0000" value="0000">00:00</option>
-					<option id="0100" value="0100">01:00</option>
-					<option id="0200" value="0200">02:00</option>
-					<option id="0300" value="0300">03:00</option>
-					<option id="0400" value="0400">04:00</option>
-				</select> <br><br>
+        <select id="end_time" name="end_time" class="input_text form-control input_control"></select> <br><br>
 			</div><br><br><br><br><br>
 
 			<div class="button_cancel">

@@ -63,8 +63,12 @@ body {
 	margin-top: 50px;
 }
 
+.set_height {
+	height: 710px;
+}
+
 .deployment_calendar {
-	height: 830px;
+	height: 100%;
 	float: left;
 }
 
@@ -440,7 +444,7 @@ body {
 .weekdays {
 	float:left;
 	width:100%;
-	height:22px;
+	height:3%;
 }
 
 .weekday_slot {
@@ -457,7 +461,7 @@ body {
 .calendar_border_home {
 	float:left;
 	width:100%;
-	height:720px;
+	height:100%;
 }
 
 .calendar_border_deploy {
