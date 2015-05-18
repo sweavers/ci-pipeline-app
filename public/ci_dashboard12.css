@@ -73,9 +73,7 @@ body {
 }
 
 .new_deployment_calendar {
-	margin-left: 20px;
 	margin-top: 50px;
-	width: 900px;
 	float: left;
 }
 
@@ -88,13 +86,11 @@ body {
 .fieldset_deployment {
 	border: 2px solid #ececec;
 	height:870px;
-	margin-left: 10px;
 }
 
 .legend_lcr {
 	color: black;
 	margin-top: 20px;
-	margin-left: 20px;
 	font-size: 250%;
 	padding: 2px 6px;
 	font-weight: bold;
@@ -171,7 +167,6 @@ body {
 }
 
 .group_label_textbox {
-	margin-left: 20px;
 	float: left;
 }
 
