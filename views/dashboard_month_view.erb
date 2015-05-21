@@ -98,8 +98,10 @@
 						<div class="calendar_text" align="right"><%=int%></div>
 					</div>
 				<% else %>
-					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form'].submit();">
-						<form name="new_deployment_form" action="new_deployment" method="get">
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form<%=int.to_s%>'].submit();">
+						<form name="new_deployment_form<%=int.to_s%>" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="<%= int.to_s + @current_month_year %>">
+							<input type="hidden" name="current_monday_month_year" value="<%= int.to_s + @current_month_year %>">
 							<div class="calendar_text" align="right"><%=int%></div>
 						</form>
 					</div>

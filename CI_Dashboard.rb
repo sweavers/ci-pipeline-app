@@ -220,9 +220,10 @@ get '/home_week_view' do
 	firstday_of_month = 'empty'
 	month_name = ''
 
-	input_monday = @current_monday_month_year[0..1].to_i
-	input_month = @current_monday_month_year[2..3].to_i
-	input_year = @current_monday_month_year[4..7].to_i
+	d = @current_monday_month_year
+	input_monday = d[0..(d.length-7)].to_i
+	input_month = d[(d.length-6)..(d.length-5)].to_i
+	input_year = d[(d.length-4)..d.length].to_i
 
 	@weekdays = {}
 	@weekday_array = []
@@ -327,7 +328,7 @@ get '/home_week_view' do
 			end
 
 		end
-		(new_monday.to_s.length == 1) ? (new_monday = '0' + new_monday.to_s) : (puts 'do nothing')
+		#(new_monday.to_s.length == 1) ? (new_monday = '0' + new_monday.to_s) : (puts 'do nothing')
 		(new_month.to_s.length == 1) ? (new_month = '0' + new_month.to_s) : (puts 'do nothing')
 		@current_monday_month_year = new_monday.to_s + new_month.to_s + new_year.to_s
 	end
@@ -365,7 +366,6 @@ get '/home_week_view' do
 		previous_month_name = '<'
 		subsequent_month_name = '>'
 	end
-
 
 	@current_monday_month_year
 	@month_year = month_name + ' ' + input_year.to_s
@@ -424,10 +424,31 @@ get '/new_deployment' do
 			end
 		end
 	else
-		@current_monday_month_year = params["current_monday_month_year"]
-	end
+		d = params["current_monday_month_year"]
+		day = d[0..(d.length-7)]
+		month = d[(d.length-6)..(d.length-5)]
+		year = d[(d.length-4)..d.length]
 
-	time_data_obj = TimeData.new
+		formatted_date = day + '.' + month + '.' + year
+
+		current_date = Date.parse(formatted_date)
+
+		weekday_number = current_date.strftime("%w")
+
+		(weekday_number.to_i == 0) ? (monday = day.to_i - 6) : (monday = day.to_i - (weekday_number.to_i-1))
+
+		if monday.to_i < 1
+			previous_month = month.to_i - 1
+			if previous_month < 1
+				previous_month = 12
+				year = year.to_i - 1
+			end
+			number_of_days = time_data_obj.days_in_month(year.to_i, previous_month.to_i)
+			monday = number_of_days.to_i + monday.to_i
+		end
+
+		@current_monday_month_year = monday.to_s + '.' + month.to_s + '.' + year.to_s
+	end
 
 	subsequent_month = 0
 	subsequent_year = 0
@@ -438,9 +459,10 @@ get '/new_deployment' do
 	firstday_of_month = 'empty'
 	month_name = ''
 
-	input_monday = @current_monday_month_year[0..1].to_i
-	input_month = @current_monday_month_year[2..3].to_i
-	input_year = @current_monday_month_year[4..7].to_i
+	d = @current_monday_month_year
+	input_monday = d[0..(d.length-7)].to_i
+	input_month = d[(d.length-6)..(d.length-5)].to_i
+	input_year = d[(d.length-4)..d.length].to_i
 
 	@weekdays = {}
 	@weekday_array = []
@@ -545,7 +567,7 @@ get '/new_deployment' do
 			end
 
 		end
-		(new_monday.to_s.length == 1) ? (new_monday = '0' + new_monday.to_s) : (puts 'do nothing')
+		#(new_monday.to_s.length == 1) ? (new_monday = '0' + new_monday.to_s) : (puts 'do nothing')
 		(new_month.to_s.length == 1) ? (new_month = '0' + new_month.to_s) : (puts 'do nothing')
 		@current_monday_month_year = new_monday.to_s + new_month.to_s + new_year.to_s
 	end
@@ -584,7 +606,16 @@ get '/new_deployment' do
 		subsequent_month_name = '>'
 	end
 
+	deployment_date = ''
 
+	if params["deployment_date"].nil? || params["deployment_date"].empty?
+		puts 'WARNING: deployment date not entered'
+	else
+		d = params["deployment_date"]
+		deployment_date = d[0..(d.length-7)] + '/' + d[(d.length-6)..(d.length-5)] + '/' + d[(d.length-4)..d.length]
+	end
+
+	@deployment_date = deployment_date
 	@current_monday_month_year
 	@month_year = month_name + ' ' + input_year.to_s
 	@weekday_array
@@ -593,165 +624,3 @@ get '/new_deployment' do
 	@subsequent_month = subsequent_month_name.to_s
 	erb :dashboard_new_deployment
 end
-
-
-
-
-
-
-
-
-
-=begin
-
-		<div class="calendar_slot_grey_full">
-			<div class="calendar_text" align="right">1</div>
-			<div class="LCR4_calendar">Some different changes</div>
-			<div class="LCR2_calendar">Changes to UI</div>
-			<div class="LCR1_calendar">Security changes</div>
-			<div class="LCR3_calendar">Map changes</div>
-		</div>
-		<div class="calendar_slot_grey">
-			<div class="calendar_text" align="right">2</div>
-		</div>
-		<div class="calendar_slot_grey">
-			<div class="calendar_text" align="right">3</div>
-		</div>
-
-=end
-
-
-=begin
-
-			if weekday == 3 && time_slot == "20:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR4_calendar_week"><div class="week_calendar_text">Title of some changes</div></div>
-				</div>
-			<% elsif weekday == 1 && time_slot == "19:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR1_calendar_week">
-					<div class="triangle"></div>
-					<div class="week_calendar_text_fail"><strike>Security changes</strike></div>
-					</div>
-				</div>
-			<% elsif weekday == 3 && time_slot == "21:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR1_calendar_week">
-					<div class="week_calendar_text_fail_2">Security changes</div>
-					<img src="fail.png" class="image_format">
-					</div>
-				</div>
-			<% elsif weekday == 5 && time_slot == "02:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR2_calendar_week"><div class="week_calendar_text">Changes to UI</div></div>
-				</div>
-			<% elsif weekday == 6 && time_slot == "22:00" || weekday == 6 && time_slot == "23:00" || weekday == 6 && time_slot == "00:00"%>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-					<div class="LCR3_calendar_week"><div class="week_calendar_text">Infrastructure changes</div></div>
-				</div>
-			<% elsif weekday == 5 %>
-				<% if time_slot == "19:00" %>
-					<div class="week_calendar_slot_bottom">
-						<div class="calendar_text" align="right"><%=time_slot%></div>
-					</div>
-				<% elsif time_slot == "04:00" %>
-					<div class="week_calendar_slot_top">
-						<div class="calendar_text" align="right"><%=time_slot%></div>
-					</div>
-				<% else %>
-					<div class="week_calendar_slot_today">
-						<div class="calendar_text" align="right"><%=time_slot%></div>
-					</div>
-				<% end %>
-			<% elsif weekday == 1 || weekday == 2%>
-				<div class="week_calendar_slot_grey">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-				</div>
-			<% else %>
-				<div class="week_calendar_slot">
-					<div class="calendar_text" align="right"><%=time_slot%></div>
-				</div>
-			<% end %>
-			<option id="1900" value="1900">19:00</option>
-			<option id="2000" value="2000">20:00</option>
-			<option id="2100" value="2100">21:00</option>
-			<option id="2200" value="2200">22:00</option>
-			<option id="2300" value="2300">23:00</option>
-			<option id="0000" value="0000">00:00</option>
-			<option id="0100" value="0100">01:00</option>
-			<option id="0200" value="0200">02:00</option>
-			<option id="0300" value="0300">03:00</option>
-=end
-
-
-=begin
-<label class="page1">Start Time</label>
-<div class="tooltips" title="Please select the start_time that the customer will primarily be served from">
-    <select id="start_time" name="start_time" placeholder="Phantasyland">
-        <option></option>
-        <option>19:00</option>
-        <option>20:00</option>
-        <option>21:00</option>
-        <option>22:00</option>
-        <option>23:00</option>
-        <option>00:00</option>
-        <option>01:00</option>
-        <option>02:00</option>
-        <option>03:00</option>
-    </select>
-</div>
-<br />
-<br />
-<label class="page1">End Time</label>
-<div class="tooltips" title="Please select the city that the customer is primarily to be served from.">
-    <select id="end_time" name="end_time" placeholder="Anycity"></select>
-</div>
-=end
-
-=begin
-jQuery(function($) {
-    var end_times = {
-        '19:00': ["20:00", "21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00", "04:00"],
-        '20:00': ["21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00", "04:00"],
-        '21:00': ["22:00", "23:00", "00:00", "01:00", "02:00", "03:00", "04:00"],
-        '22:00': ["23:00", "00:00", "01:00", "02:00", "03:00", "04:00"],
-        '23:00': ["00:00", "01:00", "02:00", "03:00", "04:00"],
-        '00:00': ["01:00", "02:00", "03:00", "04:00"],
-        '01:00': ["02:00", "03:00", "04:00"],
-        '02:00': ["03:00", "04:00"],
-        '03:00': ["04:00"]
-    }
-
-    var $end_times = $('#end_time');
-    $('#start_time').change(function () {
-        var start_time = $(this).val(), lcns = end_times[start_time] || [];
-
-        var hours = start_time.substring(0, 2);
-        var new_count = 0
-        var html = '';
-        for (var counter = 1; counter < 5; counter++) {
-            var additional_hours = (parseInt(hours) + counter).toString()
-            if (additional_hours.length == 1) {
-                var additional_hours = '0' + additional_hours + ':00';
-            }
-            else {
-                var additional_hours = additional_hours + ':00';
-            }
-            if (additional_hours == "24:00") {
-                var additional_hours = "00:00";
-                var hours = 0-counter;
-            }
-          var html = html + '<option value="'+ additional_hours + '">' + additional_hours + '</option>'
-        }
-
-
-        $end_times.html(html)
-    });
-});
-
-=end
