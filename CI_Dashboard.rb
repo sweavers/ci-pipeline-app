@@ -423,7 +423,7 @@ get '/new_deployment' do
 				@current_monday_month_year = monday.to_s + current_month.to_s + current_year.to_s
 			end
 		end
-	else 
+	else
 		d = params["current_monday_month_year"]
 		day = d[0..(d.length-7)]
 		month = d[(d.length-6)..(d.length-5)]
