@@ -8,7 +8,7 @@ require 'sinatra'
 #require 'cgi'
 #require 'socket'
 #require 'net/smtp'
-require 'sinatra/reloader'
+#require 'sinatra/reloader'
 require 'date'
 require 'time'
 #require_relative "./Marval Soap Requests.rb"
@@ -17,7 +17,7 @@ require 'time'
 
 
 set :port, 8088
-set :environment, :development
+set :environment, :production
 set :server, 'webrick'
 
 class MarvalData

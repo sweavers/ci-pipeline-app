@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Abel">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
+<link rel="stylesheet" href="hover.css" media="all">
+<link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script>
+</script>
+
+<body>
+	<div class="col-md-9">
+		<h1 class="heading">Deployment Scheduler</h1>
+	</div>
+	<div class="col-md-3">
+		<form name="input" action="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_week_view.html" method="get">
+			<div class="button_week_month">
+				<button type="submit" class="btn btn-primary btn-lg">Week View</button>
+			</div>
+		</form>
+		<form name="input" action="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_month_view.html" method="get">
+			<div class="button_week_month">
+				<button type="submit" class="btn btn-primary btn-lg select_btn">Month View</button>
+			</div>
+		</form>
+	</div>
+
+<br><br><br><br>
+
+
+
+	<div class="set_height col-md-10">
+		
+
+		<div class="calendar_header_line">
+			<div class="calendar_header">
+					<div class="col-xs-1 col-sm-1 col-md-1">
+						<form name="input" action="home_month_view" method="get">
+							<input type="hidden" name="current_month_year" value="052015">
+							<input type="hidden" name="arrow_value" value="minus">
+							<div class="left_arrow"><button type="submit" class="btn btn-primary btn-lg">Apr</button></div>
+						</form>
+					</div>
+
+					<div class="text-center col-xs-9 col-sm-10 col-md-10">
+						<div class="year_month_heading col-md-12">May 2015</div>
+					</div>
+
+					<div class="col-xs-1 col-sm-1 col-md-1">
+						<form name="input" action="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_month_view.html" method="get">
+							<input type="hidden" name="current_month_year" value="052015">
+							<input type="hidden" name="arrow_value" value="positive">
+							<div class="right_arrow"><button type="submit" class="btn btn-primary btn-lg">Jun</button></div>
+						</form>
+					</div>
+			</div>
+		</div>
+
+		<div class="weekdays">
+			
+				<div class="weekday_slot" align="center">Monday</div>
+			
+				<div class="weekday_slot" align="center">Tuesday</div>
+			
+				<div class="weekday_slot" align="center">Wednesday</div>
+			
+				<div class="weekday_slot" align="center">Thursday</div>
+			
+				<div class="weekday_slot" align="center">Friday</div>
+			
+				<div class="weekday_slot" align="center">Saturday</div>
+			
+				<div class="weekday_slot" align="center">Sunday</div>
+			
+		</div>
+
+		<div class="calendar_border_home">
+			
+				<div class="calendar_slot_grey hvr-reveal">
+					<div class="calendar_text_outside" align="right">27</div>
+				</div>
+			
+				<div class="calendar_slot_grey hvr-reveal">
+					<div class="calendar_text_outside" align="right">28</div>
+				</div>
+			
+				<div class="calendar_slot_grey hvr-reveal">
+					<div class="calendar_text_outside" align="right">29</div>
+				</div>
+			
+				<div class="calendar_slot_grey hvr-reveal">
+					<div class="calendar_text_outside" align="right">30</div>
+				</div>
+			
+
+			
+				<div class="calendar_slot hvr-reveal">
+					<div class="calendar_text" align="right">1</div>
+					<div class="LCR1_calendar">UI changes</div>
+				</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form2'].submit();">
+						<form name="new_deployment_form2" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="2052015">
+							<input type="hidden" name="current_monday_month_year" value="2052015">
+							<div class="calendar_text" align="right">2</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form3'].submit();">
+						<form name="new_deployment_form3" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="3052015">
+							<input type="hidden" name="current_monday_month_year" value="3052015">
+							<div class="calendar_text" align="right">3</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form4'].submit();">
+						<form name="new_deployment_form4" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="4052015">
+							<input type="hidden" name="current_monday_month_year" value="4052015">
+							<div class="calendar_text" align="right">4</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal">
+						<div class="calendar_text" align="right">5</div>
+						<div class="LCR3_calendar">Infrastructure changes</div>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form6'].submit();">
+						<form name="new_deployment_form6" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="6052015">
+							<input type="hidden" name="current_monday_month_year" value="6052015">
+							<div class="calendar_text" align="right">6</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form7'].submit();">
+						<form name="new_deployment_form7" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="7052015">
+							<input type="hidden" name="current_monday_month_year" value="7052015">
+							<div class="calendar_text" align="right">7</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form8'].submit();">
+						<form name="new_deployment_form8" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="8052015">
+							<input type="hidden" name="current_monday_month_year" value="8052015">
+							<div class="calendar_text" align="right">8</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form9'].submit();">
+						<form name="new_deployment_form9" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="9052015">
+							<input type="hidden" name="current_monday_month_year" value="9052015">
+							<div class="calendar_text" align="right">9</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form10'].submit();">
+						<form name="new_deployment_form10" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="10052015">
+							<input type="hidden" name="current_monday_month_year" value="10052015">
+							<div class="calendar_text" align="right">10</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form11'].submit();">
+						<form name="new_deployment_form11" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="11052015">
+							<input type="hidden" name="current_monday_month_year" value="11052015">
+							<div class="calendar_text" align="right">11</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form12'].submit();">
+						<form name="new_deployment_form12" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="12052015">
+							<input type="hidden" name="current_monday_month_year" value="12052015">
+							<div class="calendar_text" align="right">12</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form13'].submit();">
+						<form name="new_deployment_form13" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="13052015">
+							<input type="hidden" name="current_monday_month_year" value="13052015">
+							<div class="calendar_text" align="right">13</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal">
+						<div class="calendar_text" align="right">14</div>
+						<div class="LCR1_calendar"><strike>Security changes</strike></div>
+						<div class="LCR4_calendar">Title of some changes</div>
+						<div class="LCR4_calendar">Additional Features</div>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal">
+						<div class="calendar_text" align="right">15</div>
+						<div class="LCR3_calendar">Infrastructure changes</div>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form16'].submit();">
+						<form name="new_deployment_form16" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="16052015">
+							<input type="hidden" name="current_monday_month_year" value="16052015">
+							<div class="calendar_text" align="right">16</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot_today hvr-reveal">
+						<div class="calendar_text" align="right">17</div>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form18'].submit();">
+						<form name="new_deployment_form18" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="18052015">
+							<input type="hidden" name="current_monday_month_year" value="18052015">
+							<div class="calendar_text" align="right">18</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form19'].submit();">
+						<form name="new_deployment_form19" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="19052015">
+							<input type="hidden" name="current_monday_month_year" value="19052015">
+							<div class="calendar_text" align="right">19</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form20'].submit();">
+						<form name="new_deployment_form20" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="20052015">
+							<input type="hidden" name="current_monday_month_year" value="20052015">
+							<div class="calendar_text" align="right">20</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form21'].submit();">
+						<form name="new_deployment_form21" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="21052015">
+							<input type="hidden" name="current_monday_month_year" value="21052015">
+							<div class="calendar_text" align="right">21</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form22'].submit();">
+						<form name="new_deployment_form22" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="22052015">
+							<input type="hidden" name="current_monday_month_year" value="22052015">
+							<div class="calendar_text" align="right">22</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form23'].submit();">
+						<form name="new_deployment_form23" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="23052015">
+							<input type="hidden" name="current_monday_month_year" value="23052015">
+							<div class="calendar_text" align="right">23</div>
+						</form>
+					</div>
+				
+			
+				<div class="calendar_slot hvr-reveal">
+					<div class="calendar_text" align="right">24</div>
+					<div class="LCR1_calendar">UI changes</div>
+				</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form25'].submit();">
+						<form name="new_deployment_form25" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="25052015">
+							<input type="hidden" name="current_monday_month_year" value="25052015">
+							<div class="calendar_text" align="right">25</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form26'].submit();">
+						<form name="new_deployment_form26" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="26052015">
+							<input type="hidden" name="current_monday_month_year" value="26052015">
+							<div class="calendar_text" align="right">26</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form27'].submit();">
+						<form name="new_deployment_form27" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="27052015">
+							<input type="hidden" name="current_monday_month_year" value="27052015">
+							<div class="calendar_text" align="right">27</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form28'].submit();">
+						<form name="new_deployment_form28" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="28052015">
+							<input type="hidden" name="current_monday_month_year" value="28052015">
+							<div class="calendar_text" align="right">28</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form29'].submit();">
+						<form name="new_deployment_form29" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="29052015">
+							<input type="hidden" name="current_monday_month_year" value="29052015">
+							<div class="calendar_text" align="right">29</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form30'].submit();">
+						<form name="new_deployment_form30" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="30052015">
+							<input type="hidden" name="current_monday_month_year" value="30052015">
+							<div class="calendar_text" align="right">30</div>
+						</form>
+					</div>
+				
+			
+					<div class="calendar_slot hvr-reveal" onClick="document.forms['new_deployment_form31'].submit();">
+						<form name="new_deployment_form31" action="new_deployment" method="get">
+							<input type="hidden" name="deployment_date" value="31052015">
+							<input type="hidden" name="current_monday_month_year" value="31052015">
+							<div class="calendar_text" align="right">31</div>
+						</form>
+					</div>
+				
+			
+
+			
+		</div>
+	</div>
+
+	<div class="col-md-2">
+		<div class="list">
+			<h3 class="LCR_heading"><font color="#1C1C1C">Open LCRs:</font></h3>
+			<div class="fa_plus_symbol hvr-pulse">
+				<i class="fa fa-plus">
+					<a href="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_new_lcr.html">
+						<span class="link-spanner"></span>
+					</a>
+				</i>
+			</div>
+			<br><br><br>
+			<div class="LCR1">32716 - Digital Register View
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br>
+			<div class="LCR2">32719 - Register Data Migration
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br>
+			<div class="LCR3">32724 - Land Charges
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br>
+			<div class="LCR4">32731 - Counter Fraud
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br><br><br><br>
+			<form name="input" action="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_new_deployment.html" method="get">
+				<button type="submit" class="btn btn-primary btn-lg">New Deployment</button>
+			</form>
+		</div>
+	</div>
+<br><br><br><br><br><br>
+</body>
+</html>

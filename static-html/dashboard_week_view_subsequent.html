@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Abel">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
+<link rel="stylesheet" href="hover.css" media="all">
+<link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script>
+</script>
+
+<body bgcolor="#6C7A89">
+<div class="col-md-9">
+	<h1 class="heading">Deployment Scheduler</h1>
+</div>
+<div class="col-md-3">
+	<form name="input" action="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_week_view.html" method="get">
+		<div class="button_week_month">
+			<button type="submit" class="btn btn-primary btn-lg select_btn">Week View</button>
+		</div>
+	</form>
+	<form name="input" action="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_month_view.html" method="get">
+		<div class="button_week_month">
+			<button type="submit" class="btn btn-primary btn-lg">Month View</button>
+		</div>
+	</form>
+</div>
+<br><br><br><br>
+
+<div class="container-fluid">
+	<div class="set_height col-md-10">
+		<div class="calendar_header_line">
+			<div class="calendar_header">
+
+				<div class="container-fluid">
+					<div class="col-xs-1 col-sm-1 col-md-1">
+						<form name="input" action="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_week_view.html" method="get">
+							<input type="hidden" name="current_monday_month_year" value="8062015">
+							<input type="hidden" name="arrow_value" value="minus">
+							<div class="left_arrow"><button type="submit" class="btn btn-primary btn-lg"><</button></div>
+						</form>
+					</div>
+					<div class="text-center col-xs-9 col-sm-10 col-md-10">
+						<div class="year_month_heading col-md-12">June 2015</div>
+					</div>
+					<div class="col-xs-1 col-sm-1 col-md-1">
+						<form name="input" action="home_week_view" method="get">
+							<input type="hidden" name="current_monday_month_year" value="8062015">
+							<input type="hidden" name="arrow_value" value="positive">
+							<div class="right_arrow"><button type="submit" class="btn btn-primary btn-lg">></button></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+			<div class="weekdays">
+				
+					<div class="weekday_slot" align="center">Monday, 8</div>
+				
+					<div class="weekday_slot" align="center">Tuesday, 9</div>
+				
+					<div class="weekday_slot" align="center">Wednesday, 10</div>
+				
+					<div class="weekday_slot" align="center">Thursday, 11</div>
+				
+					<div class="weekday_slot" align="center">Friday, 12</div>
+				
+					<div class="weekday_slot" align="center">Saturday, 13</div>
+				
+					<div class="weekday_slot" align="center">Sunday, 14</div>
+				
+			</div>
+
+			
+
+			<div class="calendar_border_home">
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">19:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">19:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">19:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">19:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">19:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">19:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">19:00</div>
+							</div>
+						
+					
+				
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">20:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">20:00</div>
+								<div class="LCR1_calendar_week"><div class="week_calendar_text">Security Changes</div></div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">20:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">20:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">20:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">20:00</div>
+								<div class="LCR3_calendar_week"><div class="week_calendar_text">Infrastructure Changes</div></div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">20:00</div>
+							</div>
+						
+					
+				
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">21:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">21:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">21:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">21:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">21:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">21:00</div>
+								<div class="LCR3_calendar_week"><div class="week_calendar_text">Infrastructure Changes</div></div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">21:00</div>
+							</div>
+						
+					
+				
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">22:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">22:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">22:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">22:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">22:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">22:00</div>
+								<div class="LCR3_calendar_week"><div class="week_calendar_text">Infrastructure Changes</div></div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">22:00</div>
+							</div>
+						
+					
+				
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">23:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">23:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">23:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">23:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">23:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">23:00</div>
+								<div class="LCR1_calendar_week"><div class="week_calendar_text">Security Changes</div></div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">23:00</div>
+							</div>
+						
+					
+				
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">00:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">00:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">00:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">00:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">00:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">00:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">00:00</div>
+							</div>
+						
+					
+				
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">01:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">01:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">01:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">01:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">01:00</div>
+								<div class="LCR2_calendar_week"><div class="week_calendar_text">Backend changes</div></div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">01:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">01:00</div>
+							</div>
+						
+					
+				
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">02:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">02:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">02:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">02:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">02:00</div>
+								<div class="LCR2_calendar_week"><div class="week_calendar_text">Changes to UI</div></div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">02:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">02:00</div>
+							</div>
+						
+					
+				
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">03:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">03:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">03:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">03:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">03:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">03:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">03:00</div>
+							</div>
+						
+					
+				
+			
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">04:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">04:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">04:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">04:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">04:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">04:00</div>
+							</div>
+						
+					
+				
+					
+						
+							<div class="week_calendar_slot hvr-reveal">
+								<div class="calendar_text" align="right">04:00</div>
+							</div>
+						
+					
+				
+			
+			</div>
+	</div>
+
+	<div class="col-md-2">
+		<div class="list">
+			<h3 class="LCR_heading"><font color="#1C1C1C">Open LCRs:</font></h3>
+			<div class="fa_plus_symbol hvr-pulse">
+				<i class="fa fa-plus">
+					<a href="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_new_lcr.html">
+						<span class="link-spanner"></span>
+					</a>
+				</i>
+			</div>
+			<br><br><br>
+			<div class="LCR1">32716 - Digital Register View
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br>
+			<div class="LCR2">32719 - Register Data Migration
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br>
+			<div class="LCR3">32724 - Land Charges
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br>
+			<div class="LCR4">32731 - Counter Fraud
+				<a href="http://hh-mvl-d03/MSM/RFP/Forms/Request.aspx?id=83600">
+					<span class="link-spanner hvr-glow"></span>
+				</a>
+			</div><br><br><br><br>
+			<form name="input" action="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_new_deployment.html" method="get">
+				<button type="submit" class="btn btn-primary btn-lg">New Deployment</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<br><br><br><br><br><br>
+
+</body>
+
+</html>

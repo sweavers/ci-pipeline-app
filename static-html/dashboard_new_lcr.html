@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Abel">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
+<link rel="stylesheet" href="ci_dashboard12.css" type="text/css"/>
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<body>
+<fieldset class="fieldset_lcr col-md-6 col-sm-9 col-xs-12">
+	<legend class="legend_lcr col-md-6">New Lead Change Record</legend>
+	<div class="list col-md-12">
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Title*:</div>
+			<input type="text" class="input_text form-control input_control" name="contact_name"><br><br>
+		</div><br><br><br>
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Description*:</div>
+			<textarea name="description" class="input_text form-control input_control" rows="3"></textarea><br><br>
+		</div><br><br><br><br><br>
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Change Category*:</div>
+			<select name="change_category" class="input_text form-control input_control">
+				<option id="new" value="new">New</option>
+				<option id="fix" value="fix">Fix</option>
+				<option id="functional" value="functional">Functional</option>
+				<option id="it_technical" value="it_technical">IT Technical</option>
+				<option id="legislative" value="legislative">Legislative</option>
+			</select> <br><br>
+		</div><br><br><br>
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Lead ASCH RFC (optional):</div>
+		  <input type="text" class="input_text form-control input_control" name="lead_asch_rfc"><br><br>
+		</div><br><br><br>
+
+		<div class="group_label_textbox col-md-11">
+			<div class="div_label col-md-5">Project Code (optional):</div>
+			<input type="text" class="input_text form-control input_control" name="project_code"><br><br>
+		</div>
+
+    <br><br><br><br><br>
+    <div class="col-md-12">
+  		<div class="button_cancel">
+  			<button onclick="goBack()" class="btn btn-primary btn-lg">Cancel</button>
+  		</div>
+
+  		<form name="input" action="file:///C:/git-repos/ci-pipeline-dashboard/static-html/dashboard_month_view.html" method="get">
+  			<div class="button_submit">
+  				<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+  			</div>
+  		</form>
+    </div>
+	</div>
+</fieldset>
+
+
+</body>
+</html>
